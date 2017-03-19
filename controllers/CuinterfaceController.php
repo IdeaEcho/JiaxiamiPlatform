@@ -78,13 +78,13 @@ class CuinterfaceController extends Controller
                     }
                     else
                     {
-                        $returndata=array(['returnCode'=>'300']);
+                        $returndata=array('returnCode'=>'300');
                         echo base64_encode(json_encode($returndata));
                         exit(0);
                     }
                 }
             }
-            $returndata=array(['returnCode'=>'400']);
+            $returndata=array('returnCode'=>'400');
             echo base64_encode(json_encode($returndata));
             exit(0);
         }
@@ -113,19 +113,19 @@ class CuinterfaceController extends Controller
                     $model = CuAccountInterface::findOne(['phone'=>$dataArray['phone']]);
                     if($model)
                     {
-                        $returndata = base64_encode(json_encode(array(['returnCode'=> '200'])));
+                        $returndata = base64_encode(json_encode(array('returnCode'=> '200')));
                         echo $returndata;
                         exit(0);
                     }
                     else
                     {
-                        $returndata = base64_encode(json_encode(array(['returnCode'=> '300'])));
+                        $returndata = base64_encode(json_encode(array('returnCode'=> '300')));
                         echo $returndata;
                         exit(0);
                     }
                 }
             }
-            $returndata = base64_encode(json_encode(array(['returnCode'=> '400'])));
+            $returndata = base64_encode(json_encode(array('returnCode'=> '400')));
             echo $returndata;
             exit(0);
         }

@@ -45,7 +45,11 @@ class Dishes extends \yii\db\ActiveRecord
             [['dish_price'], 'number'],
             [['dish_name'], 'string', 'length' => [3,20]],
             [['imageFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
-            [['dish_photo'], 'string', 'max' => 100]
+            [['dish_photo'], 'string', 'max' => 100],
+            [['acid'], 'number'],
+            [['sweet'], 'number'],
+            [['hot'], 'number'],
+            [['salty'], 'number'],
         ];
     }
 
@@ -63,6 +67,11 @@ class Dishes extends \yii\db\ActiveRecord
             'dish_sales' => 'Dish Sales',
             'dish_photo' => 'Dish Photo',
             'dish_grade' => 'Dish Grade',
+            `dish_status`=> 'Dish STATUS',
+            `acid`=> 'acid',
+            `sweet`=> 'sweet',
+            `hot`=> 'hot',
+            `salty`=> 'salty'
         ];
     }
     public function upload()

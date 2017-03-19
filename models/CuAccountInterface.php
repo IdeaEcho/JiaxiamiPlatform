@@ -56,7 +56,7 @@ class CuAccountInterface extends \yii\db\ActiveRecord
             if($user)
             {
                 /*有此用户*/
-                $returndata = base64_encode(json_encode(array(['returnCode'=> '300'])));
+                $returndata = base64_encode(json_encode(array('returnCode'=> '300')));
                 echo $returndata;
                 exit(0);
             }
@@ -69,14 +69,14 @@ class CuAccountInterface extends \yii\db\ActiveRecord
                 $model->nickname = $this->nickname;
                 if($model->save())
                 {
-                    $returndata =base64_encode(json_encode(array(['returnCode'=>'200'])));
+                    $returndata =base64_encode(json_encode(array('returnCode'=>'200')));
                     echo $returndata;
                     exit(0);
                 }
             }
         }
         /*数据有误*/
-        $returndata =base64_encode(json_encode(array(['returnCode'=>'400'])));
+        $returndata =base64_encode(json_encode(array('returnCode'=>'400')));
         echo $returndata;
         exit(0);
     }

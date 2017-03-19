@@ -13,6 +13,7 @@ class OrderinterfaceController extends Controller
     public function init(){
         $this->enableCsrfValidation = false;
     }
+    //获取订单状态
     public function actionGetorderstatus()
     {
 //        $order_id = '14';
@@ -50,9 +51,6 @@ class OrderinterfaceController extends Controller
 //        $data = array('access_token'=>$access_token,'table_id'=>$table_id,"customer_id"=>$customer_id,'dish_json'=>$dish_json);
 //        $data = json_encode($data);
 //        print_r($data);
-
-
-
         $request = Yii::$app->request;
         if($request->isPost)
         {
@@ -96,17 +94,9 @@ class OrderinterfaceController extends Controller
 
                 }
             }
-
         }
         return json_encode(array("returnCode"=>"400"));
-
-
-
     }
-
-
-
-
 
     /*扫描二维码后判断是否是多人点餐*/
     public function actionTablesexist()
@@ -142,7 +132,7 @@ class OrderinterfaceController extends Controller
                 }
             }
         }
-        return json_encode(array(["returnCode"=>"300"]));
+        return json_encode(array("returnCode"=>"300"));
     }
     /*获得菜单*/
     public function actionGetmenu()
@@ -158,33 +148,48 @@ class OrderinterfaceController extends Controller
         if($request->isPost)
         {
             $data = $request->post('data'/*,$data*/);
-//            print_r($data);
+        //    print_r($data);
             $data = json_decode($data,true);
-//            print_r($data);
+        //    print_r($data);
             if($data)
             {
                 $model = MeAccountInterface::findOne(["access_token"=>$data["access_token"]]);
                 if($model)
                 {
                     $phone = $model->phone;
-                    $model=Dishes::findAll(["phone"=>$phone]);
+                    $store_data = ArrayHelper::toArray($model,[
+                        'app\models\MeAccountInterface'=>[
+                            'phone',
+                            'store_name',
+                            'nickname',
+                            'grade',
+                            'avatar'
+                        ],
+                    ]);
+                    $store_data['avatar'] = 'http://eat.same.ac.cn'.substr($store_data['avatar'],1);
+                    $model=Dishes::findAll(["merchant_id"=>$phone]);
                     $dish_data = ArrayHelper::toArray($model,[
                         'app\models\Dishes'=>[
                             'dish_id',
-                            'types_id',
+                            'type_id',
                             'dish_name',
                             'dish_price',
                             'dish_sales',
                             'dish_photo',
-                            'dish_grade'
+                            'dish_grade',
+                            'dish_status',
+                            'acid',
+                            'sweet',
+                            'hot',
+                            'salty'
                         ],
                     ]);
                     foreach($dish_data as $key=>$value)
                     {
-                        $dish_data[$key]['dish_photo'] = 'http://eat.ichancer.cn'.$value['dish_photo'];
+                        $dish_data[$key]['dish_photo'] = 'http://eat.same.ac.cn'.$value['dish_photo'];
                     }
                     $returndata['dishes'] = $dish_data;
-                    $returndata['phone'] = $phone;
+                    $returndata['store'] = $store_data;
 
 //                    print_r($returndata['dishes']);
 //                    return ;
@@ -192,6 +197,6 @@ class OrderinterfaceController extends Controller
                 }
             }
         }
-        return $this->redirect(Url::toRoute("site/index"));
+        // return $this->redirect(Url::toRoute("site/index"));
     }
 }

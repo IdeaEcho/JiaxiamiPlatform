@@ -34,6 +34,7 @@ class MeAccountInterface extends \yii\db\ActiveRecord
             [['grade'], 'integer'],
             ['phone','match','pattern'=>'/^1[0-9]{10}$/'],
             ['password', 'string', 'length' => [4, 70]],
+            ['avatar', 'string', 'length' => [4, 40]],
         ];
     }
 
@@ -49,6 +50,7 @@ class MeAccountInterface extends \yii\db\ActiveRecord
             'store_name' => 'Store Name',
             'nickname' => 'Nick Name',
             'grade' => 'Grade',
+            'avatar' => 'Avatar',
         ];
     }
     public function signup()
@@ -61,7 +63,7 @@ class MeAccountInterface extends \yii\db\ActiveRecord
             $user = static::findOne($this->phone);
             if($user)
             {
-                $returndata = base64_encode(json_encode(array(['returnCode'=> '300'])));
+                $returndata = base64_encode(json_encode(array('returnCode'=> '300')));
                 echo $returndata;
                 exit(0);
             }
@@ -73,13 +75,13 @@ class MeAccountInterface extends \yii\db\ActiveRecord
                 $model->grade = $this->grade;
                 if($model->save())
                 {
-                    $returndata =base64_encode(json_encode(array(['returnCode'=>'200'])));
+                    $returndata =base64_encode(json_encode(array('returnCode'=>'200')));
                     echo $returndata;
                     exit(0);
                 }
             }
         }
-        $returndata =base64_encode(json_encode(array(['returnCode'=>'400'])));
+        $returndata =base64_encode(json_encode(array('returnCode'=>'400')));
         echo $returndata;
         exit(0);
     }
