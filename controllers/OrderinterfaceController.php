@@ -6,6 +6,7 @@ use yii\web\Controller;
 use yii\helpers\ArrayHelper;
 use app\models\MeAccountInterface;
 use app\models\Dishes;
+use app\models\CoursesTypes;
 use yii\helpers\Url;
 class OrderinterfaceController extends Controller
 {
@@ -188,8 +189,17 @@ class OrderinterfaceController extends Controller
                     {
                         $dish_data[$key]['dish_photo'] = 'http://eat.same.ac.cn'.$value['dish_photo'];
                     }
+                    $model = CoursesTypes::findAll(["merchant_id"=>$phone]);
+                    $tag_data = ArrayHelper::toArray($model,[
+                        'app\models\CoursesTypes'=>[
+                            'type_id',
+                            'type_name',
+                            'privilege'
+                        ],
+                    ]);
                     $returndata['dishes'] = $dish_data;
                     $returndata['store'] = $store_data;
+                    $returndata['tags'] = $tag_data;
 
 //                    print_r($returndata['dishes']);
 //                    return ;
