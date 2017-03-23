@@ -34,7 +34,6 @@ class MeAccountInterface extends \yii\db\ActiveRecord
             [['grade'], 'integer'],
             ['phone','match','pattern'=>'/^1[0-9]{10}$/'],
             ['password', 'string', 'length' => [4, 70]],
-            ['avatar', 'string', 'length' => [4, 40]],
         ];
     }
 
@@ -50,7 +49,6 @@ class MeAccountInterface extends \yii\db\ActiveRecord
             'store_name' => 'Store Name',
             'nickname' => 'Nick Name',
             'grade' => 'Grade',
-            'avatar' => 'Avatar',
         ];
     }
     public function signup()

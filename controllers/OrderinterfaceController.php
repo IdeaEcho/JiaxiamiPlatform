@@ -17,10 +17,6 @@ class OrderinterfaceController extends Controller
     //获取订单状态
     public function actionGetorderstatus()
     {
-//        $order_id = '14';
-//        $data =  array('order_id'=>$order_id);
-//        $data = json_encode($data);
-//        print_r($data);
         $request = Yii::$app->request;
         if ($request->isPost)
         {
@@ -41,17 +37,39 @@ class OrderinterfaceController extends Controller
 
         }
         return json_encode(array('returnCode'=>'400'));
-
     }
-    public function actionSetorder()
+    //获取当前用户的所有订单
+    public function actionGetorders()
     {
-//        $access_token = 'a44f8138457ecb9e87daa34bd8501cb5';
-//        $customer_id = '15659675727';
-//        $table_id = '1';
-//        $dish_json = array(["id"=>3,"no"=>4],["id"=>4,"no"=>4],["id"=>5,"no"=>4]);
-//        $data = array('access_token'=>$access_token,'table_id'=>$table_id,"customer_id"=>$customer_id,'dish_json'=>$dish_json);
-//        $data = json_encode($data);
-//        print_r($data);
+        $request = Yii::$app->request;
+        if ($request->isPost)
+        {
+            $data  = $request ->post('data');
+            $data = json_decode($data,true);
+            if($data)
+            {
+                $orderlist = Orderinterface::findOne(['customer_id'=>$data['customer_id']]);
+                if($orderlist)
+                {
+                    $returndata =ArrayHelper::toArray($orderlist,[
+                        'app\models\Orderinterface'=>[
+                            'order_id',
+                            'table_id',
+                            'order_time',
+                            'order_dishes',
+                            'present_price'
+                        ],
+                    ]);
+                    $returndata=json_encode(array('order_list'=>$returndata,'returnCode'=>'200'));
+                    return $returndata;
+                }
+            }
+            return json_encode(array('returnCode'=>'300'));
+        }
+        return json_encode(array('returnCode'=>'400'));
+    }
+    //下订单状态
+    public function actionSetorder(){
         $request = Yii::$app->request;
         if($request->isPost)
         {
@@ -59,21 +77,22 @@ class OrderinterfaceController extends Controller
             $data = json_decode($data,true);
             if($data)
             {
-//                print_r($data);
-                $phone = MeAccountInterface::findOne(["access_token"=>$data['access_token']])->phone;
+                $store = MeAccountInterface::findOne(["access_token"=>$data['access_token']]);
+                $phone = $store->phone;
                 if($phone)
                 {
                     $price = 0;
                     $dish_json = $data['dish_json'];
-//                    print_r($dish_json);
                     foreach($dish_json as $key=>$value)
                     {
                         $temp_model=Dishes::findOne(["dish_id"=>$value['id']]);
                         $dish_price=$temp_model->dish_price*$value['no'];
                         $price+=$dish_price;
                         $dish_json[$key]['name'] = $temp_model->dish_name;
+                        $dish_json[$key]['num'] = $value['no'];
+                        $dish_json[$key]['price'] = $dish_price;
                     }
-//                    print_r($dish_json);
+                    //                    print_r($dish_json);
                     $order = new Orderinterface();
                     $order->merchant_id  = isset($phone) ? $phone : null;
                     $order->table_id = isset($data['table_id']) ? $data['table_id'] : null;
@@ -86,65 +105,32 @@ class OrderinterfaceController extends Controller
 
                     if($order->save())
                     {
-                        return json_encode(array("returnCode"=>"200"));
+                        $returndata['returnCode'] = "200";
+                        $returndata['store_name'] = $store->store_name;
+                        $returndata['table_id'] = $order->table_id;
+                        $returndata['customer_id'] = $order->customer_id;
+                        $returndata['order_price'] = $price;
+                        $returndata['order_status'] = 1;
+                        $returndata['order_time'] = $order->order_time;
+                        $returndata['dish'] = json_encode($dish_json);
+                        return json_encode($returndata);
                     }
                     else
                     {
+                        //保存失败
                         return json_encode(array("returnCode"=>"300"));
                     }
 
                 }
             }
         }
+        //参数错误
         return json_encode(array("returnCode"=>"400"));
     }
 
-    /*扫描二维码后判断是否是多人点餐*/
-    public function actionTablesexist()
-    {
-//        $access_token = 'a44f8138457ecb9e87daa34bd8501cb5';
-//        $table_id = '1';
-//        $data = array(["access_token"=>$access_token,"table_id"=>$table_id]);
-//        $data = json_encode($data);
-//        print_r($data);
-        $request = Yii::$app->request;
-
-        if($request->isPost)
-        {
-            $data = $request->post('data'/*,$data*/);
-//            print_r($data);
-            $data = json_decode($data,true);
-            if($data)
-            {
-                $model = MeAccountInterface::findOne(["access_token"=>$data['access_token']]);
-//                print_r($model);
-                if($model)
-                {
-                    $phone = $model->phone;
-                    $model= Orderinterface::findAll(["merchant_id"=>$phone,"table_id"=>$data['table_id'],"order_status"=>0]);
-                    if($model)
-                    {
-                        return json_encode(array("returnCode"=>"200"));
-                    }
-                    else
-                    {
-                        return json_encode(array("returnCode"=>"400"));
-                    }
-                }
-            }
-        }
-        return json_encode(array("returnCode"=>"300"));
-    }
     /*获得菜单*/
     public function actionGetmenu()
     {
-//        $access_token = 'a44f8138457ecb9e87daa34bd8501cb5';
-//        $id = '1';
-//        $data = array("access_token"=>$access_token);
-//        $data = json_encode($data);
-//        echo $data;
-//        水费 物业管理处      电费242.49
-//          联系海信修空调     垫付资金要打出一个单子并出示证明    燃气灶要修   加氨垫付了100
         $request = Yii::$app->request;
         if($request->isPost)
         {
@@ -208,5 +194,37 @@ class OrderinterfaceController extends Controller
             }
         }
         // return $this->redirect(Url::toRoute("site/index"));
+    }
+
+    /*扫描二维码后判断是否是多人点餐*/
+    public function actionTablesexist()
+    {
+        $request = Yii::$app->request;
+
+        if($request->isPost)
+        {
+            $data = $request->post('data'/*,$data*/);
+//            print_r($data);
+            $data = json_decode($data,true);
+            if($data)
+            {
+                $model = MeAccountInterface::findOne(["access_token"=>$data['access_token']]);
+//                print_r($model);
+                if($model)
+                {
+                    $phone = $model->phone;
+                    $model= Orderinterface::findAll(["merchant_id"=>$phone,"table_id"=>$data['table_id'],"order_status"=>0]);
+                    if($model)
+                    {
+                        return json_encode(array("returnCode"=>"200"));
+                    }
+                    else
+                    {
+                        return json_encode(array("returnCode"=>"400"));
+                    }
+                }
+            }
+        }
+        return json_encode(array("returnCode"=>"300"));
     }
 }
