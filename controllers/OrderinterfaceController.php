@@ -48,19 +48,27 @@ class OrderinterfaceController extends Controller
             $data = json_decode($data,true);
             if($data)
             {
-                $orderlist = Orderinterface::findOne(['customer_id'=>$data['customer_id']]);
+                $orderlist = Orderinterface::findAll(['customer_id'=>$data['customer_id']]);
                 if($orderlist)
                 {
                     $returndata =ArrayHelper::toArray($orderlist,[
-                        'app\models\Orderinterface'=>[
-                            'order_id',
-                            'table_id',
-                            'order_time',
-                            'order_dishes',
-                            'present_price'
-                        ],
-                    ]);
-                    $returndata=json_encode(array('order_list'=>$returndata,'returnCode'=>'200'));
+                       'app\models\Orderinterface'=>[
+                           'order_id',
+                           'table_id',
+                           'merchant_id',
+                           'order_time',
+                           'order_dishes',
+                           'present_price'
+                       ],
+                   ]);
+                    foreach($returndata as $key=>$value)
+                    {
+                        //通过商家id 获取商家名和商家头像
+                        $store = MeAccountInterface::findOne(["phone"=>$value["merchant_id"]]);
+                        $returndata[$key]['store_name'] = $store->store_name;
+                        $returndata[$key]['store_avatar'] = 'http://eat.same.ac.cn'.substr($store->avatar,1);
+                    }
+                    $returndata=json_encode(array('returnCode'=>'200','order_list'=>$returndata));
                     return $returndata;
                 }
             }
@@ -68,8 +76,9 @@ class OrderinterfaceController extends Controller
         }
         return json_encode(array('returnCode'=>'400'));
     }
-    //下订单状态
-    public function actionSetorder(){
+    //下订单
+    public function actionSetorder()
+    {
         $request = Yii::$app->request;
         if($request->isPost)
         {
@@ -107,7 +116,9 @@ class OrderinterfaceController extends Controller
                     {
                         $returndata['returnCode'] = "200";
                         $returndata['store_name'] = $store->store_name;
+                        $returndata['store_avatar'] = 'http://eat.same.ac.cn'.substr($store->avatar,1);
                         $returndata['table_id'] = $order->table_id;
+                        $returndata['order_id'] = $order->order_id;
                         $returndata['customer_id'] = $order->customer_id;
                         $returndata['order_price'] = $price;
                         $returndata['order_status'] = 1;
@@ -120,12 +131,12 @@ class OrderinterfaceController extends Controller
                         //保存失败
                         return json_encode(array("returnCode"=>"300"));
                     }
-
                 }
             }
         }
         //参数错误
-        return json_encode(array("returnCode"=>"400"));
+        $returndata['returnCode'] = "400";
+        return json_encode($returndata);
     }
 
     /*获得菜单*/
