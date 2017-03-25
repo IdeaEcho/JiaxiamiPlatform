@@ -39,7 +39,7 @@ class OrderinterfaceController extends Controller
         return json_encode(array('returnCode'=>'400'));
     }
     //获取当前用户的所有订单
-    public function actionGetorders()
+    public function actionGetorderhistory()
     {
         $request = Yii::$app->request;
         if ($request->isPost)
@@ -57,6 +57,7 @@ class OrderinterfaceController extends Controller
                            'table_id',
                            'merchant_id',
                            'order_time',
+                           'order_status',
                            'order_dishes',
                            'present_price'
                        ],
