@@ -30,7 +30,7 @@ class QrcodeController extends Controller
 
             for($i = $data['low_number'];$i<=$data['high_number'];$i++)
             {
-                $value = 'http://eat.ichancer.cn/index.php/orderinterface/getmenu.html?token='.Yii::$app->user->identity->access_token.'&id='.$i; //二维码内容
+                $value = 'http://eat.chenshuyao.cn/orderinterface/getmenu.html?token='.Yii::$app->user->identity->access_token.'&id='.$i; //二维码内容
                 $img::png($value, $file_path.$i.'.png', $errorCorrectionLevel, $matrixPointSize, 2);
                 $QR = $file_path.$i.'.png';//已经生成的原始二维码图/
                 $logo = Yii::$app->user->identity->avatar;

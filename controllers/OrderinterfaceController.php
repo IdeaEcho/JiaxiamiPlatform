@@ -67,7 +67,7 @@ class OrderinterfaceController extends Controller
                         //通过商家id 获取商家名和商家头像
                         $store = MeAccountInterface::findOne(["phone"=>$value["merchant_id"]]);
                         $returndata[$key]['store_name'] = $store->store_name;
-                        $returndata[$key]['store_avatar'] = 'http://eat.same.ac.cn'.substr($store->avatar,1);
+                        $returndata[$key]['store_avatar'] = 'http://eat.chenshuyao.cn'.substr($store->avatar,1);
                     }
                     $returndata=json_encode(array('returnCode'=>'200','order_list'=>$returndata));
                     return $returndata;
@@ -117,7 +117,7 @@ class OrderinterfaceController extends Controller
                     {
                         $returndata['returnCode'] = "200";
                         $returndata['store_name'] = $store->store_name;
-                        $returndata['store_avatar'] = 'http://eat.same.ac.cn'.substr($store->avatar,1);
+                        $returndata['store_avatar'] = 'http://eat.chenshuyao.cn'.substr($store->avatar,1);
                         $returndata['table_id'] = $order->table_id;
                         $returndata['order_id'] = $order->order_id;
                         $returndata['customer_id'] = $order->customer_id;
@@ -165,7 +165,7 @@ class OrderinterfaceController extends Controller
                             'avatar'
                         ],
                     ]);
-                    $store_data['avatar'] = 'http://eat.same.ac.cn'.substr($store_data['avatar'],1);
+                    $store_data['avatar'] = 'http://eat.chenshuyao.cn'.substr($store_data['avatar'],1);
                     $model=Dishes::findAll(["merchant_id"=>$phone]);
                     $dish_data = ArrayHelper::toArray($model,[
                         'app\models\Dishes'=>[
@@ -185,7 +185,7 @@ class OrderinterfaceController extends Controller
                     ]);
                     foreach($dish_data as $key=>$value)
                     {
-                        $dish_data[$key]['dish_photo'] = 'http://eat.same.ac.cn'.$value['dish_photo'];
+                        $dish_data[$key]['dish_photo'] = 'http://eat.chenshuyao.cn'.$value['dish_photo'];
                     }
                     $model = CoursesTypes::findAll(["merchant_id"=>$phone]);
                     $tag_data = ArrayHelper::toArray($model,[
