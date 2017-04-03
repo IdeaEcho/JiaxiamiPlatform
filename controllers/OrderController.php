@@ -30,13 +30,8 @@ class OrderController  extends Controller
     public function actionHistoryindex()
     {
         $phone = Yii::$app->user->identity->phone;
-        return $this->render('historyindex');
-    }
-    public function actionHistorylist()
-    {
-        $phone = Yii::$app->user->identity->phone;
         $model = Orderinterface::find()->where(["merchant_id"=>$phone])->all();
-        return $this->renderPartial('historylist',['model'=>$model]);
+        return $this->render('historyindex',['model'=>$model]);
     }
     public function actionFinishall()
     {
