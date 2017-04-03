@@ -12,7 +12,7 @@ $config = [
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => 'xiaoen147',
+            'cookieValidationKey' => 'csy147',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -53,10 +53,8 @@ $config = [
         'urlManager'=>array(
             'enablePrettyUrl' => true, //对url进行美化
             'suffix' => '.html',//后缀
-
-           'showScriptName' => false,//隐藏index.php
-
-           'rules' => [
+            'showScriptName' => false,//隐藏index.php
+            'rules' => [
            ],
 //            'enableStrictParsing'=>FALSE,//不要求网址严格匹配，则不需要输入rules
 //            'rules' => []//网址匹配规则

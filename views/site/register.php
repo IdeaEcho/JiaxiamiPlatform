@@ -1,21 +1,15 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Andy
- * Date: 2016/3/13 0013
- * Time: 20:41
- */
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
 $this->title = '注册';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="container">
-    <div class="line">
-        <div class="xl2 xs1 xm1 xb1">
-        </div>
-        <div class="xl8 xs4 xm4 xb4">
+<h4>
+    <?= Html::encode($this->title) ?>
+</h4>
+<hr>
+<div class="col-md-12">
             <?php $form = ActiveForm::begin([
                 'id' => 'register-form',
                 'options' => ['class' => 'form form-block'],
@@ -23,30 +17,23 @@ $this->params['breadcrumbs'][] = $this->title;
                     'options'=>['class'=>null],
                 ],
             ]); ?>
-
             <?= $form->field($model, 'phone',
-                ['template'=>"<div class=\"label\">{label}</div>\n<div class=\"field margin-small-bottom\">{input}</div>{error}"
-                ])->textInput(['class'=>'input','placeholder'=>'手机'])->label("账户名")
+                ['template'=>"<div class=\"input_1\">{input}<span>请输入您的手机号</span>{error}</div>"
+                ])->textInput(['class'=>''])
             ?>
-            <div class="form-button margin-small-bottom">
-            <?= Html::button('发送验证码',['class' => 'button','id'=> 'smsbutton'])?>
-            </div>
-            <?= $form->field($model ,'smsVerifyCode',['template'=>"<div class=\"label\">{label}</div>\n<div class=\"field margin-small-bottom\">{input}</div>{error}"
-            ])->textInput(['class'=>'input','placeholder'=>'短信验证码'])->label(false) ?>
+            <?= Html::button('发送验证码',['class' => 'default-btn','id'=> 'smsbutton'])?>
+            <?= $form->field($model ,'smsVerifyCode',['template'=>"<div class=\"input_1\">{input}<span>请输入短信验证码</span>{error}</div>"
+            ])->textInput(['class'=>''])->label(false) ?>
             <?= $form->field($model, 'password',
-                ['template'=>"<div class=\"label\">{label}</div>\n<div class=\"field margin-small-bottom\">{input}</div>{error}"
-                ])->passwordInput(['class'=>'input','placeholder'=>'请输入密码'])?>
+                ['template'=>"<div class=\"input_1\">{input}<span>请输入密码</span>{error}</div>"])->passwordInput(['class'=>''])?>
             <?= $form->field($model, 'verifyPassword',
-                ['template'=>"<div class=\"label\">{label}</div>\n<div class=\"field margin-small-bottom\">{input}</div>{error}"
-                ])->passwordInput(['class'=>'input','placeholder'=>'确认密码']) ?>
+                ['template'=>"<div class=\"input_1\">{input}<span>确认密码</span>{error}</div>"])->passwordInput(['class'=>'']) ?>
             <div class="form-button margin-small-bottom">
-                    <?= Html::submitButton('同意以下协议并注册', ['class' => 'button', 'name' => 'register-button']) ?>
+                    <?= Html::submitButton('同意以下协议并注册', ['class' => 'default-btn', 'name' => 'register-button']) ?>
             </div>
 
             <?php ActiveForm::end(); ?>
         </div>
-    </div>
-</div>
 
 <?php
     $js = <<<JS
@@ -59,8 +46,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 postmsm();
                 myCountDown = setInterval(countDown,1000);
             }
-
-
        });
 
     });
@@ -84,10 +69,6 @@ $this->params['breadcrumbs'][] = $this->title;
            count = 10;
             }
     }
-
 JS;
     $this->registerJs($js);
 ?>
-
-
-

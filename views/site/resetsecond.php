@@ -9,53 +9,33 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$this->title = '验证手机';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = '修改密码第二步：验证手机';
 ?>
-    <div class="container">
-        <div class="step margin-large-top margin-big-bottom hidden-l">
-            <div class="step-bar complete" style="width: 25%;">
-                <span class="step-point icon-check"></span><span class="step-text">第一步</span></span>
-            </div>
-            <div class="step-bar active" style="width: 25%;">
-                <span class="step-point active">2</span><span class="step-text">第二步</span>
-            </div>
-            <div class="step-bar" style="width: 25%;">
-                <span class="step-point">3</span><span class="step-text">第三步</span>
-            </div>
-            <div class="step-bar" style="width: 25%;">
-                <span class="step-point">4</span><span class="step-text">第四步</span>
-            </div>
-        </div>
-        <div class="line margin-large-top">
-            <div class="xl2 xs4 xm4 xb4">
-            </div>
-            <div class="xl6 xs3 xm3 xb3 margin-large-top">
-                <?php $form = ActiveForm::begin([
-                    'id' => 'reset-form',
-                    'options' => ['class' => 'form form-block'],
-                ]); ?>
-                <div class="margin-small-top margin-small-bottom">
-                <strong >
-                    <?=Html::label($displayphone)?>
-                </strong>
-                </div>
-                <div class="form-button margin-small-bottom">
-                <?= Html::button('发送验证码',['class' => 'button','id'=> 'smsbutton'])?>
-                </div>
-                <?= $form->field($model ,'resetSmsVerify',
-                    ['template'=>"<div class=\"label\">{label}</div>\n<div class=\"field margin-small-bottom\">{input}</div>{error}"
-                    ])->textInput(['class'=>'input','placeholder'=>'短信验证码'])->label(false) ?>
-                <div class="form-button margin-small-bottom">
-                    <?= Html::submitButton('确认', ['class' => 'button', 'name' => 'reset-button']) ?>
-                </div>
+<h4>
+    <?= Html::encode($this->title) ?>
+</h4>
+<hr>
+<div class="col-md-12">
 
-                <?php ActiveForm::end(); ?>
-            </div>
-            <div class="xl2 xs4 xm4 xb4">
-            </div>
-        </div>
+    <?php $form = ActiveForm::begin([
+    'id' => 'reset-form',
+    'options' => ['class' => 'form form-block'],
+    ]); ?>
+    <div class="margin-small-top margin-small-bottom">
+        <strong >
+        <?=Html::label($displayphone)?>
+        </strong>
     </div>
+    <?= Html::button('发送验证码',['class' => 'default-btn','id'=> 'smsbutton'])?>
+    <?= $form->field($model ,'resetSmsVerify',
+    ['template'=>"<div class=\"input_1\">{input}<span>请输入短信验证码</span>{error}</div>"
+    ])->textInput(['class'=>''])->label(false) ?>
+    <div class="form-button margin-small-bottom">
+    <?= Html::submitButton('确认', ['class' => 'default-btn', 'name' => 'reset-button']) ?>
+    </div>
+
+    <?php ActiveForm::end(); ?>
+</div>
 
 <?php
 $js = <<<JS

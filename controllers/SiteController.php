@@ -81,41 +81,6 @@ class SiteController extends Controller
             return $this->render('resetfirst',['model' => $model]);
         }
     }
-
-    /**
-     * @return string
-     */
-    public function actionResetforth()
-    {
-        return $this->render('resetforth');
-    }
-    public function  actionResetthird()
-    {
-        $session = \Yii::$app->session;
-        $session->open();
-        $model = new MerchantUserSet(['scenario'=>'resetThird']);
-        if($model->load(\Yii::$app->request->post()) && $model->validate() && $session->has('resetPassword'))
-        {
-            $phone = $session['resetPassword']['phone'];
-            $data = \Yii::$app->request->post();
-            $database = MerchantUser::findOne($phone);
-            $database->password =\Yii::$app->security->generatePasswordHash($data['MerchantUserSet']['password']);
-            if($database->save())
-            {
-                $session->remove('resetPassword');
-                $session->close();
-            }
-            return $this->redirect(Url::toRoute('site/resetforth'));
-
-        }
-        else
-        {
-            $phone = $session['resetPassword']['phone'];
-            $displayphone = substr($phone,0,4).'****'.substr($phone,8);
-            $session->close();
-            return $this->render('resetthird',['model' => $model,'displayphone'=>$displayphone]);
-        }
-    }
     /*重置密码手机验证码验证*/
     public function actionResetsecond()
     {
@@ -138,7 +103,39 @@ class SiteController extends Controller
             return $this->render('resetsecond',['model' => $model,'displayphone'=>$displayphone]);
         }
     }
-
+    public function  actionResetthird()
+    {
+        $session = \Yii::$app->session;
+        $session->open();
+        $model = new MerchantUserSet(['scenario'=>'resetThird']);
+        if($model->load(\Yii::$app->request->post()) && $model->validate() && $session->has('resetPassword'))
+        {
+            $phone = $session['resetPassword']['phone'];
+            $data = \Yii::$app->request->post();
+            $database = MerchantUser::findOne($phone);
+            $database->password =\Yii::$app->security->generatePasswordHash($data['MerchantUserSet']['password']);
+            if($database->save())
+            {
+                $session->remove('resetPassword');
+                $session->close();
+            }
+            return $this->redirect(Url::toRoute('site/resetforth'));
+        }
+        else
+        {
+            $phone = $session['resetPassword']['phone'];
+            $displayphone = substr($phone,0,4).'****'.substr($phone,8);
+            $session->close();
+            return $this->render('resetthird',['model' => $model,'displayphone'=>$displayphone]);
+        }
+    }
+    /**
+     * @return string
+     */
+    public function actionResetforth()
+    {
+        return $this->render('resetforth');
+    }
     /*后台接口,ajax发送密码重置验证码*/
     public function actionResetpawsms()
     {
