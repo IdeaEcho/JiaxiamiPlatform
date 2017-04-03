@@ -9,12 +9,10 @@ use yii\web\Controller;
 use yii\web\Response;
 use yii\web\UploadedFile;
 
-/**
- * DishesController implements the CRUD actions for Dishes model.
- */
 class DishesController extends Controller
 {
     public $layout = false;
+    //新增、编辑菜品
     public function actionIndex()
     {
         $phone = Yii::$app->user->identity->phone;
@@ -24,12 +22,14 @@ class DishesController extends Controller
             'typelist'=>$typelist
         ]);
     }
+    //菜品列表
     public function actionList()
     {
         $phone = Yii::$app->user->identity->phone;
         $model = Dishes::find()->where(['merchant_id'=>$phone])->all();
         return $this->renderPartial('list',['model'=>$model]);
     }
+    //删除菜品
     public function actionDel($id)
     {
         $result =array();
@@ -43,6 +43,7 @@ class DishesController extends Controller
         }
         return $this->renderJson($result);
     }
+    //提交编辑菜品
     public function actionEdit()
     {
         if(Yii::$app->request->isPost)

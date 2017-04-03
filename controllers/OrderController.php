@@ -18,14 +18,20 @@ class OrderController  extends Controller
         $phone = Yii::$app->user->identity->phone;
         $model = Orderinterface::find()->where(["merchant_id"=>$phone,"order_status"=> 1])->all();
         return $this->renderPartial('newlist',['model'=>$model]);
-//        print_r($model);
+    //        print_r($model);
     }
     public function actionInglist()
     {
         $phone = Yii::$app->user->identity->phone;
         $model = Orderinterface::find()->where(["merchant_id"=>$phone,"order_status"=>2])->all();
         return $this->renderPartial('inglist',['model'=>$model]);
-//        print_r($model);
+    //        print_r($model);
+    }
+    public function actionHistoryindex()
+    {
+        $phone = Yii::$app->user->identity->phone;
+        $model = Orderinterface::find()->where(["merchant_id"=>$phone])->all();
+        return $this->render('historyindex',['model'=>$model]);
     }
     public function actionFinishall()
     {
@@ -34,7 +40,6 @@ class OrderController  extends Controller
         $result = array();
         if($model)
         {
-//            print_r($model);
             foreach($model as $tmpmodel)
             {
                 $tmpmodel->order_status = 4;
