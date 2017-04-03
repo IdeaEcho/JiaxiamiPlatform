@@ -474,7 +474,7 @@ FrontendAsset::register($this);
                 <div class="col-md-6 col-xs-12">
                     <div class="footer-widget contact-widget">
                         <img src="/imgs/footerlogo.png" class="logo-footer img-responsive" alt="Footer Logo" />
-                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+                        <p>产品名称“夹虾米”。<br/>定位为“轻巧的线下点餐及菜品推荐平台，同时提供个人口味分析的功能”。</p>
                         <ul class="social-icons">
                             <li>
                                 <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
