@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Andy
- * Date: 2016/5/22 0022
- * Time: 13:05
- */
 use yii\helpers\Html;
 use yii\helpers\Json;
 

@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Andy
- * Date: 2016/5/22 0022
- * Time: 19:08
- */
 use yii\helpers\Html;
 use yii\helpers\Json;
 
@@ -115,7 +109,7 @@ use yii\helpers\Json;
     <div class="col-sm-6">
         <div class="ibox float-e-margins">
             <div class="ibox-title">
-                <h5>新订单</h5>
+                <h5>历史订单</h5>
                 <div class="ibox-tools">
 <!--                    <a class="collapse-link">-->
 <!--                        <i class="fa fa-chevron-up"></i>-->

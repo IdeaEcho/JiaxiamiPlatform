@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Andy
- * Date: 2016/3/27 0027
- * Time: 11:51
- */
 namespace app\controllers;
 
 use Yii;
@@ -57,10 +51,7 @@ BackendindexAsset::register($this);
                     </div>
                 </li>
                 <li>
-                    <a class="J_menuItem" href="<?=url::toRoute("order/index")?>" data-index="0"><i class="fa fa-columns"></i> <span class="nav-label">首页</span></a>
-                </li>
-                <li>
-                    <a class="J_menuItem" href="<?=url::toRoute("admin/orderpage")?>"><i class="fa fa-cc-paypal"></i> <span class="nav-label">订单</span></a>
+                    <a class="J_menuItem" href="<?=url::toRoute("order/index")?>" data-index="0"><i class="fa fa-columns"></i> <span class="nav-label">订单</span></a>
                 </li>
                 <li>
                     <a class="J_menuItem" href="<?=url::toRoute("menuclassifypage/index")?>"><i class="fa fa-list-ol"></i> <span class="nav-label">菜品分类</span></a>
@@ -74,9 +65,9 @@ BackendindexAsset::register($this);
                 <li>
                     <a class="J_menuItem" href="<?=url::toRoute("qrcode/index")?>"><i class="fa fa-clipboard"></i> <span class="nav-label">桌号标签</span></a>
                 </li>
-                <li>
+                <!-- <li>
                     <a class="J_menuItem" href="<?=url::toRoute("wifi/index")?>"><i class="fa fa-clipboard"></i> <span class="nav-label">wifi设置</span></a>
-                </li>
+                </li> -->
             </ul>
         </div>
     </nav>
@@ -201,12 +192,8 @@ BackendindexAsset::register($this);
 
 
         <div class="row J_mainContent" id="content-main">
-                             <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="<?=url::toRoute("order/index")?>" frameborder="0" data-id="<?=url::toRoute("order/index")?>" seamless></iframe>
+            <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="<?=url::toRoute("order/index")?>" frameborder="0" data-id="<?=url::toRoute("order/index")?>" seamless></iframe>
         </div>
-<!--        <div class="footer">-->
-<!--            <div class="pull-right">&copy; 2014-2015 <a href="http://www.zi-han.net/" target="_blank">zihan's blog</a>-->
-<!--            </div>-->
-<!--        </div>-->
     </div>
 </div>
 
@@ -220,5 +207,3 @@ BackendindexAsset::register($this);
 </body>
 </html>
 <?php $this->endPage() ?>
-
-
