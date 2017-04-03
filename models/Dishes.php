@@ -42,6 +42,7 @@ class Dishes extends \yii\db\ActiveRecord
     {
         return [
             [['merchant_id', 'dish_name', 'dish_price'], 'required'],
+            [['type_id'], 'number'],
             [['dish_price'], 'number'],
             [['dish_name'], 'string', 'length' => [3,20]],
             [['imageFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],

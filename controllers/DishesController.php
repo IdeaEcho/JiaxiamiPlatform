@@ -61,7 +61,6 @@ class DishesController extends Controller
                     $result['status'] = 0;
                     $result['message'] = '未找到该记录';
                 }
-
             }
             else
             {
@@ -70,6 +69,7 @@ class DishesController extends Controller
             $origndata['Dishes']['merchant_id']=$phone;
             $imgdata = UploadedFile::getInstance($model,'imageFile');
 
+            // var_dump($imgdata);
 
             //有上传文件
             if($imgdata!=null)
@@ -93,7 +93,6 @@ class DishesController extends Controller
                 }
             }
 
-
             //没有上传文件
             if($model->load($origndata))
             {
@@ -102,7 +101,6 @@ class DishesController extends Controller
                     $result['status'] = 1;
                     $result['message'] = '保存成功';
                 }
-
             }
 
             $error = $model->getFirstErrors();

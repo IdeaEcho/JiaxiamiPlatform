@@ -53,6 +53,11 @@ BackendhomeAsset::register($this);
                     <h4 class="modal-title">Modal title</h4>
                 </div>
                 <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-8">
+                        <?= $form->field($model, 'dish_id', ['template' => '{label}<div class="col-md-6">{input}{hint}{error}</div>', 'labelOptions' => ['class' => 'control-label col-md-2']]) ?>
+                        </div>
+                    </div>
                     <!-- 菜名 -->
                     <div class="row">
                         <div class="col-md-8">
@@ -157,7 +162,7 @@ BackendhomeAsset::register($this);
                         parent.layer.closeAll('loading');
                  },
                  success:function(data){
-                        //console.log(data);
+                        console.log(data);
                         if (data.status == 1)
                         {
                             parent.layer.alert(data.message, {icon: 6}, function (index) {
@@ -175,7 +180,8 @@ BackendhomeAsset::register($this);
                  },
                  error:function(XmlHttpRequest, textStatus, errorThrown){
                         console.log("error");
-                        parent.layer.alert('出错拉:' + textStatus + ' ' + errorThrown, {icon: 5});
+                        console.log(XmlHttpRequest);
+                        parent.layer.alert('出错了:' + textStatus + ' ' + errorThrown, {icon: 5});
                  }
             });
             return false;
@@ -191,7 +197,7 @@ BackendhomeAsset::register($this);
             parent.layer.closeAll('loading');
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            parent.layer.alert('出错拉:' + textStatus + ' ' + errorThrown, {icon: 5});
+            parent.layer.alert('出错啦:' + textStatus + ' ' + errorThrown, {icon: 5});
         },
         success: function (data) {
             $(".ibox-content").html(data);
