@@ -46,11 +46,22 @@ BackendhomeAsset::register($this);
                             <tbody>
                             <?php $count=1; foreach ($model as $order){?>
                                 <tr class="row">
+                                    <?php
+                                        $dishes = $order['order_dishes'];
+                                        $dishes = json_decode($dishes,true);
+                                    ?>
                                     <td class="col-xs-1 col-md-1"><?=$count++?></td>
                                     <td class="col-xs-1 col-md-1"><?=Html::encode($order['order_id'])?></td>
                                     <td class="col-xs-2 col-md-2"><?=Html::encode($order['order_time'])?></td>
                                     <td><?=Html::encode($order['table_id'])?></td>
-                                    <td><?=Html::encode($order['order_dishes'])?></td>
+                                    <td><ul>
+                                        <?php
+                                            foreach($dishes as $tmpdata)
+                                            {
+                                                echo '<li>'.$tmpdata['name']."*".$tmpdata['no'].'</li>';
+                                            }
+                                        ?>
+                                    </ul></td>
                                     <td><?=Html::encode($order['customer_id'])?></td>
                                     <td><?=Html::encode($order['original_price'])?></td>
                                     <td><?=Html::encode($order['present_price'])?></td>
