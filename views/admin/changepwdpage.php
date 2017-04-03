@@ -1,12 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Andy
- * Date: 2016/3/11 0011
- * Time: 22:54
- */
-
-
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Url;
@@ -73,6 +65,3 @@ $this->registerJs($js);
 </body>
 </html>
 <?php $this->endPage() ?>
-
-
-

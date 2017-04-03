@@ -60,18 +60,19 @@ class Dishes extends \yii\db\ActiveRecord
     {
         return [
             'merchant_id' => 'merchant_id',
-            'dish_id' => 'Dish ID',
-            'types_id' => 'Types ID',
-            'dish_name' => '菜品名称',
+            'dish_id' => 'ID',
+            'type_id' => '分类',
+            'dish_name' => '名称',
             'dish_price' => '价格',
-            'dish_sales' => 'Dish Sales',
-            'dish_photo' => 'Dish Photo',
+            'dish_sales' => '销量',
+            'dish_photo' => '图片',
             'dish_grade' => 'Dish Grade',
-            `dish_status`=> 'Dish STATUS',
-            `acid`=> 'acid',
-            `sweet`=> 'sweet',
-            `hot`=> 'hot',
-            `salty`=> 'salty'
+            'dish_status'=> 'Dish STATUS',
+            'imageFile'=>'图片文件',
+            'acid'=> '酸',
+            'sweet'=> '甜',
+            'hot'=> '辣',
+            'salty'=> '咸'
         ];
     }
     public function upload()

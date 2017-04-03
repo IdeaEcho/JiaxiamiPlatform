@@ -5,7 +5,7 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\captcha\Captcha;
 
-$this->title = '商家登录';
+$this->title = '夹虾米-商家平台';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
     <h4>

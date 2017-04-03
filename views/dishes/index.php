@@ -1,17 +1,13 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Andy
- * Date: 2016/5/6 0006
- * Time: 10:48
- */
 namespace app\controllers;
 
 use app\assets\BackendhomeAsset;
 use Yii;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\helpers\ArrayHelper;
 use yii\bootstrap\ActiveForm;
+
 BackendhomeAsset::register($this);
 ?>
 
@@ -37,7 +33,6 @@ BackendhomeAsset::register($this);
                         <h5>菜单设置</h5>
                     </div>
                     <div class="ibox-content" data-list="<?= Url::toRoute('dishes/list') ?>" data-del="<?= Url::toRoute('dishes/del') ?>">
-
                     </div>
                 </div>
             </div>
@@ -58,17 +53,46 @@ BackendhomeAsset::register($this);
                     <h4 class="modal-title">Modal title</h4>
                 </div>
                 <div class="modal-body">
+                    <!-- 菜名 -->
                     <div class="row">
                         <div class="col-md-8">
                         <?= $form->field($model, 'dish_name', ['template' => '{label}<div class="col-md-6">{input}{hint}{error}</div>', 'labelOptions' => ['class' => 'control-label col-md-2']]) ?>
                         </div>
                     </div>
-                    <?= $form->field($model, 'dish_id')->hiddenInput()->label(false) ?>
+                    <!-- 分类 -->
+                    <div class="row">
+                        <div class="col-md-8">
+                            <?= $form->field($model, 'type_id')->dropDownList(ArrayHelper::map($typelist, 'type_id', 'type_name'))  ?>
+                        <!-- <?= $form->field($model, 'type_id',['template' => '{label}<div class="col-md-6">{input}{hint}{error}</div>', 'labelOptions' => ['class' => 'control-label col-md-2']]) ?> -->
+                        </div>
+                    </div>
+                    <!-- 价格 -->
                     <div class="row">
                         <div class="col-md-8">
                             <?=$form->field($model,'dish_price',['template' => '{label}<div class="col-md-6">{input}{hint}{error}</div>', 'labelOptions' => ['class' => 'control-label col-md-2']])?>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <?=$form->field($model,'acid',['template' => '{label}<div class="col-md-6">{input}{hint}{error}</div>', 'labelOptions' => ['class' => 'control-label col-md-2']])?>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <?=$form->field($model,'sweet',['template' => '{label}<div class="col-md-6">{input}{hint}{error}</div>', 'labelOptions' => ['class' => 'control-label col-md-2']])?>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <?=$form->field($model,'hot',['template' => '{label}<div class="col-md-6">{input}{hint}{error}</div>', 'labelOptions' => ['class' => 'control-label col-md-2']])?>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <?=$form->field($model,'salty',['template' => '{label}<div class="col-md-6">{input}{hint}{error}</div>', 'labelOptions' => ['class' => 'control-label col-md-2']])?>
+                        </div>
+                    </div>
+                    <!-- 图片 -->
                     <div class="row">
                         <div class="col-md-8">
                             <?= $form->field($model, 'imageFile')->fileInput() ?>
@@ -96,9 +120,14 @@ BackendhomeAsset::register($this);
             if(data=='add')
             {
                 modal.find('.modal-title').text("添加菜品");
-                $("#dishes-dish_name").val('');
                 $("#dishes-dish_id").val('');
+                $("#dishes-dish_name").val('');
+                $("#dishes-type_id").val('');
                 $("#dishes-dish_price").val('');
+                $("#dishes-acid").val('');
+                $("#dishes-sweet").val('');
+                $("#dishes-hot").val('');
+                $("#dishes-salty").val('');
             }
             else
             {
@@ -106,7 +135,12 @@ BackendhomeAsset::register($this);
                 data=eval(data);
                 $("#dishes-dish_id").val(data.dish_id);
                 $("#dishes-dish_name").val(data.dish_name);
+                $("#dishes-type_id").val(data.type_id);
                 $("#dishes-dish_price").val(data.dish_price);
+                $("#dishes-acid").val(data.acid);
+                $("#dishes-sweet").val(data.sweet);
+                $("#dishes-hot").val(data.hot);
+                $("#dishes-salty").val(data.salty);
             }
         });
 
@@ -139,7 +173,7 @@ BackendhomeAsset::register($this);
                             });
                         }
                  },
-                 error:function(XmlHttpRequest,textStatus,errorThrown){
+                 error:function(XmlHttpRequest, textStatus, errorThrown){
                         console.log("error");
                         parent.layer.alert('出错拉:' + textStatus + ' ' + errorThrown, {icon: 5});
                  }

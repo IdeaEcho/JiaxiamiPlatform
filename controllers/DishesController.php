@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Dishes;
+use app\models\CoursesTypes;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\web\UploadedFile;
@@ -16,7 +17,12 @@ class DishesController extends Controller
     public $layout = false;
     public function actionIndex()
     {
-        return $this->render('index',['model'=>new Dishes()]);
+        $phone = Yii::$app->user->identity->phone;
+        $typelist = CoursesTypes::find()->where(['merchant_id'=>$phone])->all();
+        return $this->render('index',[
+            'model'=>new Dishes(),
+            'typelist'=>$typelist
+        ]);
     }
     public function actionList()
     {

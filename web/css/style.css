@@ -945,7 +945,7 @@ ul.tags li a:hover{
 	padding-top: 100px;
 	display: table-cell;
     vertical-align: middle;
-	z-index: 2;
+	z-index: 1;
 }
 .box-intro .input_1 {
 	position: relative;
@@ -2200,7 +2200,7 @@ input:-webkit-autofill { box-shadow: 0 0 0px 1000px #fff9e9 inset !important;}
 		margin-top: 7%;
 		position: relative;
 		background-color: transparent;
-		z-index: 2;
+		z-index: 1;
 		font-size: 14px;
 		color:#9a9a9a;
 }

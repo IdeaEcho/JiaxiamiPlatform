@@ -51,8 +51,7 @@ FrontendAsset::register($this);
             <nav>
                     <ul class="box-primary-nav">
                             <li class="box-label">夹虾米</li>
-
-                            <li><a href="index.html">主页</a> <i class="lnr lnr-home"></i></li>
+                            <li><a href="#">主页</a> <i class="lnr lnr-home"></i></li>
                             <li><a href="#">提供的服务</a></li>
                             <li><a href="#">产品剪影</a></li>
                             <li><a href="#">联系我们</a></li>
@@ -90,7 +89,7 @@ FrontendAsset::register($this);
             <div class="col-md-8 col-md-offset-2">
                 <img src="/imgs/about.png" alt="Khaki HTML Template" width="300">
                 <div class="km-space"></div>
-                <h5 class="lead">This is our most powerful template, that provide functionality to create corporate, app showcase, gaming, music, barber, etc websites.</h5>
+                <h5 class="lead">夹虾米的由来：因与一句常用的闽南语"吃什么"同音而命名。</h5>
             </div>
         </div><!-- description text -->
     </div>
@@ -106,9 +105,8 @@ FrontendAsset::register($this);
             <div class="row center mb-100">
                 <div class="section-title-parralax">
                     <div class="process-numbers">01</div>
-                    <h2>Our Team</h2>
-                    <p class="module-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua.
+                    <h2>夹虾米是什么?</h2>
+                    <p class="module-subtitle">为取代纸质菜单而生，扫码即可获取最新的菜单，商家修改更方便，用户点餐更快捷。
                     </p>
                 </div>
             </div>
@@ -122,7 +120,7 @@ FrontendAsset::register($this);
                     <div class="team_cover"><div class="team_cover_inner"></div></div>
                         <div class="overlay">
                             <h6>饮食爱好分析! </h6>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit lacus, a iaculis diam.</p>
+                            <p>通过每次的点餐记录，分析您的喜好，为您推荐你可能喜欢的菜品</p>
                         </div>
                 </div>
                     <h6>饮食爱好分析</h6>
@@ -137,7 +135,7 @@ FrontendAsset::register($this);
                     <div class="team_cover"><div class="team_cover_inner"></div></div>
                         <div class="overlay">
                             <h6>做菜顺序 &amp; 我们来! </h6>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit lacus, a iaculis diam.</p>
+                            <p>通过研究每道菜的制作时间，来安排更佳的做菜顺序.</p>
                         </div>
                 </div>
                     <h6>做菜顺序我们来</h6>
@@ -152,7 +150,7 @@ FrontendAsset::register($this);
                     <div class="team_cover"><div class="team_cover_inner"></div></div>
                         <div class="overlay">
                             <h6>挑战活动! </h6>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit lacus, a iaculis diam.</p>
+                            <p>定期的调整活动。邀请您来挑战您的味蕾，而不是只局限于一种口味</p>
                             <div class="social-links">
                                 <a href=""><i class="fa fa-twitter"></i></a>
                                 <a href=""><i class="fa fa-facebook"></i></a>
@@ -176,7 +174,7 @@ FrontendAsset::register($this);
                                 <div class="item-head">
                                     <i class="lnr lnr-diamond"></i>
                                 </div>
-                                <h6>creative design</h6>
+                                <h6>更环保</h6>
                                 <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                             </div>
                         </div>
@@ -186,7 +184,7 @@ FrontendAsset::register($this);
                                 <div class="item-head">
                                     <i class="lnr lnr-rocket"></i>
                                 </div>
-                                <h6>well organized</h6>
+                                <h6>更快捷</h6>
                                 <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.e</p>
                             </div>
                         </div>
@@ -197,7 +195,7 @@ FrontendAsset::register($this);
                                 <div class="item-head">
                                     <i class="lnr lnr-mustache"></i>
                                 </div>
-                                <h6>easy to customize</h6>
+                                <h6>更有趣</h6>
                                 <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                             </div>
                         </div>
@@ -208,7 +206,7 @@ FrontendAsset::register($this);
                                 <div class="item-head">
                                     <i class="lnr lnr-phone"></i>
                                 </div>
-                                <h6>support 24/7</h6>
+                                <h6>更周到</h6>
                                 <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                             </div>
                         </div>
@@ -276,8 +274,7 @@ FrontendAsset::register($this);
                 <div class="section-title mb-100">
                     <div class="process-numbers">03</div>
                     <h2>产品剪影</h2>
-                    <p class="module-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p class="module-subtitle">产品分为商家管理平台和用户点餐App，App已兼容Android和iOS。</p>
                 </div>
             </div>
         </div>
@@ -447,7 +444,7 @@ FrontendAsset::register($this);
                         there live the blind texts.
                     </p>
 
-                <a href="contact.html" class="default-btn"> 商家入驻 <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                <a href="site/register.html" class="default-btn"> 商家入驻 <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
             </div>
         </div>
 

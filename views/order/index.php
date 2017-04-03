@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Andy
- * Date: 2016/4/10 0010
- * Time: 11:06
- */
 namespace app\controllers;
 
 use app\assets\BackendhomeAsset;
