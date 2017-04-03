@@ -681,7 +681,7 @@ ul.tags li a:hover{
     left: 0;
     height: 50px;
     width: 100%;
-    z-index: 3;
+    z-index: 4;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -824,7 +824,7 @@ ul.tags li a:hover{
     height: 100%;
     width: 100%;
     background: rgba(0, 0, 0, 0.96);
-    z-index: 2;
+    z-index: 3;
     text-align: center;
     padding: 50px 0;
     -webkit-backface-visibility: hidden;
@@ -957,7 +957,6 @@ ul.tags li a:hover{
 }
 .box-intro .img {
 	display: block;
-	padding: 0 20px;
 }
 .box-intro em {
     font-style: normal;
@@ -2186,23 +2185,22 @@ input:-webkit-autofill { box-shadow: 0 0 0px 1000px #fff9e9 inset !important;}
 
 .input_1{
     height: 50px;
-    width: 60%;
+    width: 100%;
     border-bottom: 1px dashed #e0e0e1;
     position: relative;
 }
 
 .input_1 input[type="text"],
 .input_1 input[type="password"]{
-		height: 65%;
-		width: 60%;
-		border:0;
-		padding: 0 20px;
-		margin-top: 7%;
-		position: relative;
-		background-color: transparent;
-		z-index: 1;
-		font-size: 14px;
-		color:#9a9a9a;
+	width: 100%;
+	border: 0;
+	padding-left: 20px;
+	margin-top: 5%;
+	position: relative;
+	background-color: transparent;
+	z-index: 2;
+	font-size: 14px;
+	color: #9a9a9a;
 }
 
 
@@ -2357,6 +2355,7 @@ ul.services-list li{
 
 .form-group {
     margin-bottom: 20px !important;
+	position: relative;
 }
 
 .detail h3 {

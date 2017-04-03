@@ -102,7 +102,7 @@ FrontendAsset::register($this);
                 <div class="section-title-parralax">
                     <div class="process-numbers">01</div>
                     <h2>夹虾米是什么?</h2>
-                    <p class="module-subtitle">为取代纸质菜单而生，扫码即可获取最新的菜单，商家修改更方便，用户点餐更快捷。
+                    <p class="module-subtitle">将一本本不易更新又不环保的纸质菜单替换为桌角萌萌的二维码君，扫码即可获取最新的菜单，实时为用户提供最新的菜品信息。
                     </p>
                 </div>
             </div>
@@ -171,7 +171,7 @@ FrontendAsset::register($this);
                                     <i class="lnr lnr-diamond"></i>
                                 </div>
                                 <h6>更环保</h6>
-                                <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                <p>假设一家餐厅有10本菜单，一本菜单有5页，一个月更新一次菜单，一家餐厅一年至少就要600张纸。而据统计2015年全国餐厅达5074852家。而所有餐厅每年仅仅是更新菜单就要浪费3,044,911,200张纸。</p>
                             </div>
                         </div>
                         <!-- End features-item -->
@@ -181,7 +181,7 @@ FrontendAsset::register($this);
                                     <i class="lnr lnr-rocket"></i>
                                 </div>
                                 <h6>更快捷</h6>
-                                <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.e</p>
+                                <p>在这个提倡高效率的时代，本平台省去用户等待服务员递菜单，用户点餐后把菜单交给服务员等流程。只需用手机APP扫描桌角二维码获取菜单信息，所见即所得，立即点餐。</p>
                             </div>
                         </div>
                         <!-- End features-item -->
@@ -192,7 +192,7 @@ FrontendAsset::register($this);
                                     <i class="lnr lnr-mustache"></i>
                                 </div>
                                 <h6>更有趣</h6>
-                                <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                <p>通过用户日常的点餐记录分析数据、整合数据，为用户量身打造个人饮食喜好分析图。立志打造用户饮食习惯的全身镜，清楚了解自己，培养良好的饮食习惯。做成真正让人爱不释手的生活必备软件。</p>
                             </div>
                         </div>
                         <!-- End features-item -->
@@ -203,7 +203,7 @@ FrontendAsset::register($this);
                                     <i class="lnr lnr-phone"></i>
                                 </div>
                                 <h6>更周到</h6>
-                                <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                <p>假设一家餐厅有10本菜单，一本菜单有5页，一个月更新一次菜单，一家餐厅一年至少就要600张纸。而据统计2015年全国餐厅达5074852家。而所有餐厅每年仅仅是更新菜单就要浪费3,044,911,200张纸。</p>
                             </div>
                         </div>
                         <!-- End features-item -->
@@ -220,8 +220,7 @@ FrontendAsset::register($this);
                 <div class="section-title-parralax">
                     <div class="process-numbers">02</div>
                     <h2>我们提供服务</h2>
-                    <p class="module-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua.
+                    <p class="module-subtitle">将一本本不易更新又不环保的纸质菜单替换为桌角萌萌的二维码君，扫码即可获取最新的菜单，实时为用户提供最新的菜品信息。
                     </p>
                 </div>
             </div>
@@ -229,32 +228,32 @@ FrontendAsset::register($this);
         <div class="row">
             <div class="col-lg-6 right col-full right-0">
                 <i class="lnr lnr-rocket"></i>
-                <h6>unlimited options</h6>
-                <p>Quisque eget hendrerit eros, ut interdum magna.
-                    <br>Donec urna ante, lobortis nec dictum eget, porta non turpis.
+                <h6>更快捷</h6>
+                <p>实时更新菜单
+                    <br>直接扫码下单, 无需等待, 快速查看订单详情
                 </p>
             </div>
             <div class="col-lg-6 left col-full left-0">
                 <i class="lnr lnr-laptop-phone"></i>
-                <h6>design &amp; development</h6>
-                <p>Quisque eget hendrerit eros, ut interdum magna.
-                    <br>Donec urna ante, lobortis nec dictum eget, porta non turpis.
+                <h6>web &amp; app</h6>
+                <p>我们支持PC端、iOS和Android
+                    <br>商家web管理平台更易管理, 用户移动平台更便捷
                 </p>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-6 right col-full right-0">
                 <i class="lnr lnr-cart"></i>
-                <h6>e-commerce</h6>
-                <p>Quisque eget hendrerit eros, ut interdum magna.
-                    <br>Donec urna ante, lobortis nec dictum eget, porta non turpis.
+                <h6>消费记录</h6>
+                <p>通过用户日常的点餐记录分析数据、整合数据
+                    <br>为用户量身打造个人饮食喜好分析图，为用户量身打造个人饮食喜好分析图
                 </p>
             </div>
             <div class="col-lg-6 left col-full left-0">
                 <i class="lnr lnr-cog"></i>
-                <h6>customizable design</h6>
-                <p>Quisque eget hendrerit eros, ut interdum magna.
-                    <br>Donec urna ante, lobortis nec dictum eget, porta non turpis.
+                <h6>design</h6>
+                <p>做成真正让人爱不释手的生活必备软件。
+                    <br>立志打造用户饮食习惯的全身镜，清楚了解自己，培养良好的饮食习惯
                 </p>
             </div>
         </div>
@@ -435,9 +434,7 @@ FrontendAsset::register($this);
             <div class="row">
                 <h4> 加入我们</h4>
                     <p class="libre-text mt-50">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua.Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                        there live the blind texts.
+                        如果对此您也有些想法，欢迎加入我们。
                     </p>
 
                 <a href="site/register.html" class="default-btn"> 商家入驻 <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>

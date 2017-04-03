@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="line">
                     <?= Html::submitButton('登录', ['class' => 'default-btn', 'name' => 'login-button']) ?>
                     <a class="default-btn" href="<?=Url::toRoute('site/resetfirst')?>">忘记密码?</a>
-                    <a class="default-btn" href="<?=Url::toRoute('site/register')?>">免费注册</a>
+                    <a class="default-btn" href="<?=Url::toRoute('site/register')?>">免费注册<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
             </div>
         <?php ActiveForm::end(); ?>
 </div>
