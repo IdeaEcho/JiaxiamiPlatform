@@ -460,7 +460,7 @@ a{
 .section-title-parralax h2{
 		text-transform: uppercase;
 		letter-spacing: 10px;
-		color: #000;
+		color: #1a1a1a;
 		font-size: 40px;
 		font-weight: 700;
 		margin-top: -145px;
@@ -913,13 +913,13 @@ ul.tags li a:hover{
     display: table;
     height: 100vh;
     width: 100%;
-    background-image: url(../imgs/header.jpg);
-		background-attachment: fixed;
-    background-position: center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    background-color: #fff9e9;
+	background-attachment: fixed;
+	background-position: center center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
 .bg-film:before {
@@ -1265,7 +1265,7 @@ footer a:hover {
     text-decoration: none;
 }
 
-.contact-widget ul.social-icons li a.facebook:hover i {
+.contact-widget ul.social-icons li a.github:hover i {
    	color: #507CBE;
 }
 
@@ -1508,7 +1508,7 @@ footer a:hover {
 .services h2{
 		text-transform: uppercase;
 	  letter-spacing: 5px;
-	  color: #000;
+	  color: #1a1a1a;
 	  font-size: 40px;
 	  font-weight: 700;
 	  margin-top: -145px;
@@ -1542,7 +1542,7 @@ footer a:hover {
 .portfolio h2{
 		text-transform: uppercase;
 	  letter-spacing: 5px;
-	  color: #000;
+	  color: #1a1a1a;
 	  font-size: 40px;
 	  font-weight: 700;
 	  margin-top: -145px;

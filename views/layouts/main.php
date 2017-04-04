@@ -147,11 +147,6 @@ FrontendAsset::register($this);
                         <div class="overlay">
                             <h6>挑战活动! </h6>
                             <p>定期的调整活动。邀请您来挑战您的味蕾，而不是只局限于一种口味</p>
-                            <div class="social-links">
-                                <a href=""><i class="fa fa-twitter"></i></a>
-                                <a href=""><i class="fa fa-facebook"></i></a>
-                                <a href=""><i class="fa fa-google"></i></a>
-                            </div>
                         </div>
                 </div>
                     <h6>挑战活动</h6>
@@ -279,12 +274,12 @@ FrontendAsset::register($this);
                 <nav class="categories">
                     <ul class="portfolio_filter">
                         <li><a href="" class="active" data-filter="*">all</a></li>
-                        <li><a href="" data-filter=".photography">photography</a></li>
-                        <li><a href="" data-filter=".web">webdesign</a></li>
+                        <li><a href="" data-filter=".platform">平台</a></li>
+                        <li><a href="" data-filter=".web">网页</a></li>
                         <li><a href="" data-filter=".logo">logo</a></li>
-                        <li><a href="" data-filter=".graphics">graphics</a></li>
-                        <li><a href="" data-filter=".ads">advertising</a></li>
-                        <li><a href="" data-filter=".fashion">fashion</a></li>
+                        <li><a href="" data-filter=".graphics">图表</a></li>
+                        <li><a href="" data-filter=".ads">广告</a></li>
+                        <li><a href="" data-filter=".mobile">移动端</a></li>
                     </ul>
                 </nav>
             </div>
@@ -294,13 +289,13 @@ FrontendAsset::register($this);
         <div class="col-md-9">
             <div class="row portfolio_container">
                 <!-- single work -->
-                <div class="col-md-4 photography">
+                <div class="col-md-4 web platform">
                     <a href="single-project.html" class="portfolio_item work-grid">
-                        <img src="/imgs/work-1.jpg" alt="image">
+                        <img src="/imgs/work-1.png" alt="image">
                         <div class="portfolio_item_hover">
                             <div class="item_info">
-                                <span>Brave man</span>
-                                <em>photography</em>
+                                <span>夹虾米</span>
+                                <em>平台</em>
                             </div>
                         </div>
                     </a>
@@ -308,13 +303,13 @@ FrontendAsset::register($this);
                 <!-- end single work -->
 
                 <!-- single work -->
-                <div class="col-md-4 fashion logo">
+                <div class="col-md-4 mobile logo">
                     <a href="single-project.html" class="portfolio_item work-grid">
                         <img src="/imgs/work-2.jpg" alt="image">
                         <div class="portfolio_item_hover">
                             <div class="item_info">
-                                <span>super man</span>
-                                <em>photography</em>
+                                <span>夹虾米</span>
+                                <em>LOGO</em>
                             </div>
                         </div>
                     </a>
@@ -322,13 +317,13 @@ FrontendAsset::register($this);
                 <!-- end single work -->
 
                 <!-- single work -->
-                <div class="col-md-4 ads graphics">
+                <div class="col-md-4 web ads graphics">
                     <a href="single-project.html" class="portfolio_item work-grid">
-                        <img src="/imgs/work-5.jpg" alt="image">
+                        <img src="/imgs/work-5.png" alt="image">
                         <div class="portfolio_item_hover">
                             <div class="item_info">
-                                <span>bat man</span>
-                                <em>photography</em>
+                                <span>统计数据</span>
+                                <em>一目了然</em>
                             </div>
                         </div>
                     </a>
@@ -336,13 +331,13 @@ FrontendAsset::register($this);
                 <!-- end single work -->
 
                 <!-- single work -->
-                <div class="col-md-4 fashion ads">
+                <div class="col-md-4 mobile ads">
                     <a href="single-project.html" class="portfolio_item work-grid">
-                        <img src="/imgs/work-4.jpg" alt="image">
+                        <img src="/imgs/work-4.png" alt="image">
                         <div class="portfolio_item_hover">
                             <div class="item_info">
-                                <span>spider man</span>
-                                <em>photography</em>
+                                <span>购物车</span>
+                                <em>移动端</em>
                             </div>
                         </div>
                     </a>
@@ -350,13 +345,13 @@ FrontendAsset::register($this);
                 <!-- end single work -->
 
                 <!-- single work -->
-                <div class="col-md-4 graphics ads">
+                <div class="col-md-4 mobile ads">
                     <a href="single-project.html" class="portfolio_item work-grid">
-                        <img src="/imgs/work-3.jpg" alt="image">
+                        <img src="/imgs/work-7.png" alt="image">
                         <div class="portfolio_item_hover">
                             <div class="item_info">
-                                <span>iron man</span>
-                                <em>photography</em>
+                                <span>电子菜单</span>
+                                <em>移动端</em>
                             </div>
                         </div>
                     </a>
@@ -364,13 +359,13 @@ FrontendAsset::register($this);
                 <!-- end single work -->
 
                 <!-- single work -->
-                <div class="col-md-4 logo web photography">
+                <div class="col-md-4 web platform graphics">
                     <a href="single-project.html" class="portfolio_item work-grid">
-                        <img src="/imgs/work-6.jpg" alt="image">
+                        <img src="/imgs/work-6.png" alt="image">
                         <div class="portfolio_item_hover">
                             <div class="item_info">
-                                <span>iron man</span>
-                                <em>photography</em>
+                                <span>菜品列表</span>
+                                <em>平台</em>
                             </div>
                         </div>
                     </a>
@@ -378,13 +373,13 @@ FrontendAsset::register($this);
                 <!-- end single work -->
 
                 <!-- single work -->
-                <div class="col-md-4 ads graphics">
+                <div class="col-md-4 ads">
                     <a href="single-project.html" class="portfolio_item work-grid">
                         <img src="/imgs/work-2.jpg" alt="image">
                         <div class="portfolio_item_hover">
                             <div class="item_info">
-                                <span>iron man</span>
-                                <em>photography</em>
+                                <span>夹虾米</span>
+                                <em>Icon</em>
                             </div>
                         </div>
                     </a>
@@ -392,27 +387,13 @@ FrontendAsset::register($this);
                 <!-- end single work -->
 
                 <!-- single work -->
-                <div class="col-md-4 web fashion photography">
+                <div class="col-md-4 mobile platform">
                     <a href="single-project.html" class="portfolio_item work-grid">
-                        <img src="/imgs/work-3.jpg" alt="image">
+                        <img src="/imgs/work-3.png" alt="image">
                         <div class="portfolio_item_hover">
                             <div class="item_info">
-                                <span>iron man</span>
-                                <em>photography</em>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <!-- end single work -->
-
-                <!-- single work -->
-                <div class="col-md-4 fashion logo">
-                    <a href="single-project.html" class="portfolio_item work-grid">
-                        <img src="/imgs/work-1.jpg" alt="image">
-                        <div class="portfolio_item_hover">
-                            <div class="item_info">
-                                <span>iron man</span>
-                                <em>photography</em>
+                                <span>Android&iOS</span>
+                                <em>平台</em>
                             </div>
                         </div>
                     </a>
@@ -477,7 +458,7 @@ FrontendAsset::register($this);
                         <p>产品名称“夹虾米”。<br/>定位为“轻巧的线下点餐及菜品推荐平台，同时提供个人口味分析的功能”。</p>
                         <ul class="social-icons">
                             <li>
-                                <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
+                                <a class="github" href="https://github.com/IdeaEcho/RnProject"><i class="fa fa-github"></i></a>
                             </li>
                             <li>
                                 <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
