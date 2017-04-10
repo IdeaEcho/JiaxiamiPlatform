@@ -70,6 +70,10 @@ class CuinterfaceController extends Controller
                             'app\models\CuAccountInterface'=>[
                                 'phone',
                                 'nickname',
+                                'acid',
+                                'sweet',
+                                'hot',
+                                'salty'
                             ],
                         ]);
                         $returndata['returnCode']='200';

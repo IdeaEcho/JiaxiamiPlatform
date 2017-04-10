@@ -30,7 +30,10 @@ class CuAccountInterface extends \yii\db\ActiveRecord
             [['phone'], 'required'],
             ['phone','match','pattern'=>'/^1[0-9]{10}$/'],
             [['nickname'], 'string', 'max' => 20],
-            ['password', 'string', 'length' => [4, 70]],
+            [['acid'], 'number'],
+            [['sweet'], 'number'],
+            [['hot'], 'number'],
+            [['salty'], 'number']
         ];
     }
 

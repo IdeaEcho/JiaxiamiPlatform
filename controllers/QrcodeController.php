@@ -12,6 +12,7 @@ class QrcodeController extends Controller
     {
         return $this->render('index');
     }
+    //下载二维码
     public function actionDownload()
     {
         $data = \Yii::$app->request->post();
@@ -26,7 +27,7 @@ class QrcodeController extends Controller
                 mkdir($file_path);
             }
 
-//            echo $file_path;
+           //echo $file_path;
 
             for($i = $data['low_number'];$i<=$data['high_number'];$i++)
             {
@@ -34,8 +35,9 @@ class QrcodeController extends Controller
                 $img::png($value, $file_path.$i.'.png', $errorCorrectionLevel, $matrixPointSize, 2);
                 $QR = $file_path.$i.'.png';//已经生成的原始二维码图/
                 $logo = Yii::$app->user->identity->avatar;
+                echo $logo;
                 if ($logo !== FALSE) {
-                    $QR = imagecreatefromstring(file_get_contents($QR));
+                    $QR = imagecreatefromstring(file_get_contents($QR));//imagecreatefromstring从字符串中的图像流新建一图像
                     $logo = imagecreatefromstring(file_get_contents($logo));
                     $QR_width = imagesx($QR);//二维码图片宽度
                     $QR_height = imagesy($QR);//二维码图片高度
