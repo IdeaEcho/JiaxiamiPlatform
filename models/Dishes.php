@@ -11,6 +11,7 @@ use yii\web\UploadedFile;
  *
  * @property string $merchant_id
  * @property integer $dish_id
+ * @property string $dish_name
  * @property integer $types_id
  * @property string $dish_name
  * @property string $dish_price
@@ -43,6 +44,7 @@ class Dishes extends \yii\db\ActiveRecord
         return [
             [['merchant_id', 'dish_name', 'dish_price'], 'required'],
             [['type_id'], 'number'],
+            [['type_name'], 'string'],
             [['dish_price'], 'number'],
             [['dish_name'], 'string', 'length' => [3,20]],
             [['imageFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
@@ -62,7 +64,8 @@ class Dishes extends \yii\db\ActiveRecord
         return [
             'merchant_id' => 'merchant_id',
             'dish_id' => 'ID',
-            'type_id' => '分类',
+            'type_id' => '分类ID',
+            'type_name' => '分类名称',
             'dish_name' => '名称',
             'dish_price' => '价格',
             'dish_sales' => '销量',
