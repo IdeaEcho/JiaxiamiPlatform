@@ -26,12 +26,12 @@ class DishesController extends Controller
     public function actionList()
     {
         $phone = Yii::$app->user->identity->phone;
-        $dishlist = Dishes::find()->where(['merchant_id'=>$phone])->all();
-        foreach($dishlist as $key=>$value) {
+        $model = Dishes::find()->where(['merchant_id'=>$phone])->all();
+        foreach($model as $key=>$value) {
             $type = CoursesTypes::findOne(['merchant_id'=>$phone,'type_id'=>$value['type_id']]);
-            $dishlist[$key]['type_name'] = $type->type_name;
+            $typelist[$key]['type_name'] = $type->type_name;
         }
-        return $this->renderPartial('list',['model'=>$dishlist]);
+        return $this->renderPartial('list',['model'=>$model,'typelist'=>$typelist]);
     }
     //删除菜品
     public function actionDel($id)
