@@ -67,8 +67,9 @@ BackendhomeAsset::register($this);
                     <!-- 分类 -->
                     <div class="row">
                         <div class="col-md-8">
+                            <div class="col-md-6">
                             <?= $form->field($model, 'type_id')->dropDownList(ArrayHelper::map($typelist, 'type_id', 'type_name'))  ?>
-                        <!-- <?= $form->field($model, 'type_id',['template' => '{label}<div class="col-md-6">{input}{hint}{error}</div>', 'labelOptions' => ['class' => 'control-label col-md-2']]) ?> -->
+                            </div>
                         </div>
                     </div>
                     <!-- 价格 -->
@@ -100,7 +101,9 @@ BackendhomeAsset::register($this);
                     <!-- 图片 -->
                     <div class="row">
                         <div class="col-md-8">
+                            <div class="col-md-6">
                             <?= $form->field($model, 'imageFile')->fileInput() ?>
+                            </div>
                         </div>
                     </div>
                 </div>
