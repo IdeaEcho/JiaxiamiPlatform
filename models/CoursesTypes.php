@@ -16,9 +16,6 @@ use Yii;
  */
 class CoursesTypes extends \yii\db\ActiveRecord
 {
-    /**
-     * @inheritdoc
-     */
     public $privilegeA;             //去零头
     public $privilegeB;             //满减
     public $privilegeB_lower;       //满减下限
@@ -38,7 +35,7 @@ class CoursesTypes extends \yii\db\ActiveRecord
         return [
             [['merchant_id', 'type_name', 'privilege'], 'required'],
             [['merchant_id'],'match','pattern'=>'/^1[0-9]{10}$/'],
-            [['type_name'], 'string', 'length' => [3, 30],'message'=>'{attribute}长度不少于2'],
+            [['type_name'], 'string', 'length' => [2, 30],'message'=>'{attribute}长度不少于2'],
             [['privilege'], 'string', 'max' => 100],
 //            [['privilegeA','privilegeB'],'boolean'],
 
@@ -53,7 +50,7 @@ class CoursesTypes extends \yii\db\ActiveRecord
         return [
             'merchant_id' => 'merchant_id',
             'type_id' => 'Typeid',
-            'type_name' => '菜品分类名',
+            'type_name' => '分类名',
             'privilege' => 'Privilege',
         ];
     }

@@ -37,7 +37,6 @@ BackendhomeAsset::register($this);
                         <h5>菜品分类</h5>
                     </div>
                     <div class="ibox-content" data-list="<?= Url::toRoute('menuclassifypage/classifylist') ?>" data-del="<?= Url::toRoute('menuclassifypage/classifydel') ?>">
-
                     </div>
                 </div>
             </div>
@@ -57,27 +56,20 @@ BackendhomeAsset::register($this);
                     <h4 class="modal-title">Modal title</h4>
                 </div>
                 <div class="modal-body">
-
                     <div class="row">
                     <?= $form->field($model, 'type_name', ['template' => '{label}<div class="col-md-6">{input}{hint}{error}</div>', 'labelOptions' => ['class' => 'control-label col-md-2']]) ?>
                     <?= $form->field($model, 'type_id')->hiddenInput()->label(false) ?>
                     </div>
                     <div class="row">
                         <label class="control-label  col-md-2">优惠设置</label>
+                        <label class="checkbox-inline">
+                            <?=$form->field($model,'privilegeA')->checkbox()->label('去零头') ?>
+                        </label>
+                        <label class="checkbox-inline">
+                            <?=$form->field($model,'privilegeB')->checkbox()->label('满减') ?>
+                        </label>
                     </div>
                     <div class="row">
-                        <div class="col-md-3">
-                            <label class="checkbox-inline">
-                                <?=$form->field($model,'privilegeA')->checkbox()->label('去零头') ?>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <label class="checkbox-inline">
-                                <?=$form->field($model,'privilegeB')->checkbox()->label('满减') ?>
-                            </label>
-                        </div>
                         <div class="col-md-9">
                             <div class="col-md-6">
                                 <?=$form->field($model,'privilegeB_lower')->label("满")?>
@@ -154,7 +146,7 @@ BackendhomeAsset::register($this);
             parent.layer.closeAll('loading');
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            parent.layer.alert('出错拉:' + textStatus + ' ' + errorThrown, {icon: 5});
+            parent.layer.alert('出错啦:' + textStatus + ' ' + errorThrown, {icon: 5});
         },
         success: function (data) {
             //console.log("load success");
@@ -178,7 +170,7 @@ BackendhomeAsset::register($this);
                     parent.layer.closeAll('loading');
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    parent.layer.alert('出错拉:' + textStatus + ' ' + errorThrown, {icon: 5});
+                    parent.layer.alert('出错啦:' + textStatus + ' ' + errorThrown, {icon: 5});
                 },
                 success: function (data) {
                     if(data.status == 1)

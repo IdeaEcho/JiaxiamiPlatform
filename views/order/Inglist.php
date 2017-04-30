@@ -7,7 +7,6 @@ use yii\helpers\Json;
 <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
     <thead>
     <tr>
-
         <th data-toggle="true">时间</th>
         <th>桌号</th>
         <th>菜品和数量</th>
@@ -16,7 +15,6 @@ use yii\helpers\Json;
         <th data-hide="all">用户手机号</th>
         <th data-hide="all">菜品</th>
         <th data-hide="all">总价</th>
-
         <th>操作</th>
     </tr>
     </thead>

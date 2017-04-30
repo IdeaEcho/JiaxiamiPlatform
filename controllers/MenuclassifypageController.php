@@ -9,19 +9,16 @@ use yii\web\Response;
 class MenuclassifypageController extends Controller
 {
     public $layout=false;
-    public function actionIndex()
-    {
+    public function actionIndex() {
         return $this->render('index',['model'=>new CoursesTypes()]);
     }
-    public function actionClassifyedit()
-    {
+    //编辑分类
+    public function actionClassifyedit() {
         $origndata = Yii::$app->request->post();
         $data = $origndata['CoursesTypes'];
         $phone = Yii::$app->user->identity->phone;
         $result = array();
         $model=null;
-
-
 
         if(is_numeric($data['type_id']) && $data['type_id'] >0)
         {
@@ -36,11 +33,6 @@ class MenuclassifypageController extends Controller
         {
             $model = new CoursesTypes();
         }
-
-//        print_r($model);
-//
-//
-//
         $privilege = array();
         $data['privilegeA'] == 1 ? $privilege['privilegeA']=1 : $privilege['privilegeA']=0;
         $privilege['privilegeB']=0;
@@ -56,7 +48,6 @@ class MenuclassifypageController extends Controller
         $privilege  = json_encode($privilege);
         $origndata['CoursesTypes']['privilege'] = $privilege;
         $origndata['CoursesTypes']['merchant_id'] = $phone;
-//
         if($model->load($origndata))
         {
             if($model->save())
@@ -73,13 +64,14 @@ class MenuclassifypageController extends Controller
         }
         return $this->renderJson($result);
     }
+    //分类列表
     public function actionClassifylist()
     {
         $phone = Yii::$app->user->identity->phone;
         $model = CoursesTypes::find()->where(['merchant_id'=>$phone])->all();
-//        print_r($model);
         return $this->renderPartial('list',['model'=>$model]);
     }
+    //删除分类
     public function actionClassifydel($id)
     {
         $result =array();
