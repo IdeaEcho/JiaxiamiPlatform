@@ -54,16 +54,13 @@ BackendindexAsset::register($this);
                     <a class="J_menuItem" href="<?=url::toRoute("order/index")?>" data-index="0"><i class="fa fa-columns"></i> <span class="nav-label">首页</span></a>
                 </li>
                 <li>
-                    <a class="J_menuItem" href="<?=url::toRoute("order/historyindex")?>" data-index="0"><i class="fa fa-columns"></i> <span class="nav-label">历史订单</span></a>
+                    <a class="J_menuItem" href="<?=url::toRoute("order/historyindex")?>" data-index="0"><i class="fa fa-copy"></i> <span class="nav-label">历史订单</span></a>
                 </li>
                 <li>
                     <a class="J_menuItem" href="<?=url::toRoute("menuclassifypage/index")?>"><i class="fa fa-list-ol"></i> <span class="nav-label">菜品分类</span></a>
                 </li>
                 <li>
                     <a class="J_menuItem" href="<?=url::toRoute("dishes/index")?>"><i class="fa fa-list-alt"></i> <span class="nav-label">菜品</span></a>
-                </li>
-                <li>
-                    <a class="J_menuItem" href="<?=url::toRoute("admin/billpage")?>"><i class="fa fa-clipboard"></i> <span class="nav-label">账单</span></a>
                 </li>
                 <li>
                     <a class="J_menuItem" href="<?=url::toRoute("qrcode/index")?>"><i class="fa fa-clipboard"></i> <span class="nav-label">桌号标签</span></a>

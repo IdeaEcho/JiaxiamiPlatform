@@ -48,11 +48,12 @@ class CuAccountInterface extends \yii\db\ActiveRecord
             'password' => 'Password',
         ];
     }
+    /*
+     * 登录
+     * returncode   200 success 300 exists  400不符合规范
+     */
     public function signup()
     {
-        /* returncode   200 success 300 exists  400不符合规范
-         *
-         * */
         if($this->validate())
         {
             $user = static::findOne($this->phone);

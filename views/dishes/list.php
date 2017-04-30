@@ -28,7 +28,7 @@ use yii\helpers\Json;
             <td class="col-xs-1 col-md-1"><?=$count++?></td>
             <td class="col-xs-1 col-md-1"><a href="#" class="thumbnail"><img class="img-responsive" alt="Responsive image" src="<?=$dishes['dish_photo']?>" ></a></td>
             <td class="col-xs-2 col-md-2"><?=Html::encode($dishes['dish_name'])?></td>
-            <td><?=Html::encode($dishes['type_id'])?></td>
+            <td><?=Html::encode($dishes['type_name'])?></td>
             <td><?=Html::encode($dishes['dish_price'])?></td>
             <td><?=Html::encode($dishes['dish_sales'])?></td>
             <td><?=Html::encode($dishes['dish_grade'])?></td>

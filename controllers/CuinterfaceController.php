@@ -1,26 +1,27 @@
 <?php
+/*
+＊顾客账户
+*/
 namespace app\controllers;
-
 use app\models\CuAccountInterface;
 use yii\web\Controller;
 use yii\helpers\ArrayHelper;
-class CuinterfaceController extends Controller
-{
+class CuinterfaceController extends Controller{
     public $layout = false;
-    public function init(){
+    public function init()  {
         $this->enableCsrfValidation = false;
     }
-    public function actionRegister()
-    {
-        /* returncode   200 success 300 exists  400不符合规范
-         *
-         * */
-//        $phone = '15659675720';
-//        $password = '147159';
-//        $array = array("phone"=>$phone,"password"=>$password);
-//        $array= json_encode($array);
-//        $array= base64_encode($array);
-//        echo $array;
+    /*
+    ＊　注册
+     *　returncode   200 success 300 exists  400不符合规范
+     */
+    public function actionRegister() {
+        //        $phone = '15659675720';
+        //        $password = '147159';
+        //        $array = array("phone"=>$phone,"password"=>$password);
+        //        $array= json_encode($array);
+        //        $array= base64_encode($array);
+        //        echo $array;
         $request = \Yii::$app->request;
         if($request->isPost)
         {
@@ -43,29 +44,25 @@ class CuinterfaceController extends Controller
             }
         }
     }
-    public function actionLogin()
-    {
-        /*returnCode 200成功并返回数据  300用户名或密码错误  400数据不符合规范
-          *
-          * */
-//        $phone = '15659675720';
-//        $password = '147159';
-//        $array = array("phone"=>$phone,"password"=>$password);
-//        $array= json_encode($array);
-//        $array= base64_encode($array);
-//        echo $array;
+    /*
+    ＊　登录
+     *　returnCode 200成功并返回数据  300用户名或密码错误  400数据不符合规范
+     */
+    public function actionLogin() {
+        //        $phone = '15659675720';
+        //        $password = '147159';
+        //        $array = array("phone"=>$phone,"password"=>$password);
+        //        $array= json_encode($array);
+        //        $array= base64_encode($array);
+        //        echo $array;
         $request = \Yii::$app->request;
-        if($request->isPost)
-        {
+        if($request->isPost){
             $data = $request->post('data'/*,$array*/);
-            if($data)
-            {
+            if($data){
                 $dataArray = json_decode(base64_decode($data), true);
-                if($dataArray)
-                {
+                if($dataArray){
                     $model = CuAccountInterface::findOne(['phone' => $dataArray['phone']]);
-                    if($model && \Yii::$app->security->validatePassword($dataArray['password'],$model->password))
-                    {
+                    if($model && \Yii::$app->security->validatePassword($dataArray['password'],$model->password)){
                         $returndata = ArrayHelper::toArray($model,[
                             'app\models\CuAccountInterface'=>[
                                 'phone',
@@ -79,9 +76,7 @@ class CuinterfaceController extends Controller
                         $returndata['returnCode']='200';
                         echo base64_encode(json_encode($returndata));
                         exit(0);
-                    }
-                    else
-                    {
+                    }else{
                         $returndata=array('returnCode'=>'300');
                         echo base64_encode(json_encode($returndata));
                         exit(0);
@@ -93,36 +88,29 @@ class CuinterfaceController extends Controller
             exit(0);
         }
     }
-    public function actionAccountexist()
-    {
-        /*
-         * returnCode 200存在 300不存在
-         *
-         * */
-//        $phone = '15659675720';
-//        $array = array("phone"=>$phone);
-//        $array= json_encode($array);
-//        $array= base64_encode($array);
-//        echo $array;
+    /*
+     * 查看账户是否存在
+     * returnCode 200存在 300不存在
+     */
+    public function actionAccountexist() {
+        //        $phone = '15659675720';
+        //        $array = array("phone"=>$phone);
+        //        $array= json_encode($array);
+        //        $array= base64_encode($array);
+        //        echo $array;
         $request = \Yii::$app->request;
-        if($request->isPost)
-        {
+        if($request->isPost){
             $data = $request->post('data'/*,$array*/);
-            if($data)
-            {
+            if($data){
                 $json = base64_decode($data);
                 $dataArray = json_decode($json,true);
-                if($dataArray)
-                {
+                if($dataArray){
                     $model = CuAccountInterface::findOne(['phone'=>$dataArray['phone']]);
-                    if($model)
-                    {
+                    if($model){
                         $returndata = base64_encode(json_encode(array('returnCode'=> '200')));
                         echo $returndata;
                         exit(0);
-                    }
-                    else
-                    {
+                    }else{
                         $returndata = base64_encode(json_encode(array('returnCode'=> '300')));
                         echo $returndata;
                         exit(0);
@@ -134,11 +122,9 @@ class CuinterfaceController extends Controller
             exit(0);
         }
     }
-    public function actionTest()
-    {
+    public function actionTest(){
         $request = \Yii::$app->request;
-        if($request->isPost)
-        {
+        if($request->isPost){
             $data  = $request ->post();
             print_r($data);
         }
