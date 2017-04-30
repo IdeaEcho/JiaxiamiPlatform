@@ -26,7 +26,11 @@ class DishesController extends Controller
     public function actionList()
     {
         $phone = Yii::$app->user->identity->phone;
-        $model = Dishes::find()->where(['merchant_id'=>$phone])->all();
+        $dishlist = Dishes::find()->where(['merchant_id'=>$phone])->all();
+        foreach($dishlist as $key=>$value) {
+            $coursetype = CoursesTypes::findOne(['merchant_id'=>$phone,'type_id'=>$value['type_id']]);
+            $dishlist[$key]['type_name'] = $coursetype->type_name;
+        }
         return $this->renderPartial('list',['model'=>$model]);
     }
     //删除菜品
