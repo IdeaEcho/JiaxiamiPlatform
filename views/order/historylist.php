@@ -2,7 +2,7 @@
 use yii\helpers\Html;
 use yii\helpers\Json;
 ?>
-<table class="table">
+<table class="table" data-page-size="15">
     <thead>
     <tr class="row">
         <th class="col-xs-1 col-md-1">#</th>

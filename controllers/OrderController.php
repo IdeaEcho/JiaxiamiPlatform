@@ -84,7 +84,7 @@ class OrderController  extends Controller
     public function actionList()
     {
         $phone = Yii::$app->user->identity->phone;
-        $model = Orderinterface::find()->where(["merchant_id"=>$phone])->all();
+        $model = Orderinterface::find()->where(["merchant_id"=>$phone])->orderBy('order_time DESC')->all();
         return $this->renderPartial('list',['model'=>$model]);
     }
     public function actionAcceptall()
