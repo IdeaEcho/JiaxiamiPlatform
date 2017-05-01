@@ -42,13 +42,12 @@ BackendindexAsset::register($this);
                             </li>
                             <li><a class="J_menuItem" href="profile.html">个人资料</a>
                             </li>
-<!--                            <li class="divider"></li>-->
-<!--                            <li><a href="">安全退出</a>-->
-<!--                            </li>-->
+                            <!-- <li class="divider"></li>
+                            <li><a href="">安全退出</a>
+                            </li> -->
                         </ul>
                     </div>
-                    <div class="logo-element">What
-                    </div>
+                    <div class="logo-element">夹虾米</div>
                 </li>
                 <li>
                     <a class="J_menuItem" href="<?=url::toRoute("order/index")?>" data-index="0"><i class="fa fa-columns"></i> <span class="nav-label">首页</span></a>
@@ -74,7 +73,7 @@ BackendindexAsset::register($this);
     <!--左侧导航结束-->
     <!--右侧部分开始-->
     <div id="page-wrapper" class="gray-bg dashbard-1">
-        <div class="row border-bottom">
+        <!-- <div class="row border-bottom">
             <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
                     <form role="search" class="navbar-form-custom" method="post" action="search_results.html">
@@ -161,8 +160,7 @@ BackendindexAsset::register($this);
                     </li>
                 </ul>
             </nav>
-        </div>
-
+        </div> -->
         <div class="row content-tabs">
             <button class="roll-nav roll-left J_tabLeft"><i class="fa fa-backward"></i>
             </button>
@@ -189,20 +187,14 @@ BackendindexAsset::register($this);
             </div>
             <a href="<?=Url::toRoute("/site/logout")?>" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
         </div>
-
-
         <div class="row J_mainContent" id="content-main">
             <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="<?=url::toRoute("order/index")?>" frameborder="0" data-id="<?=url::toRoute("order/index")?>" seamless></iframe>
         </div>
     </div>
 </div>
-
-
 <!--<script language=JavaScript>-->
 <!--    parent.location.reload();-->
 <!--</script>-->
-
-
 <?php $this->endBody() ?>
 </body>
 </html>

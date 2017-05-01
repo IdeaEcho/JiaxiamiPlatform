@@ -125,8 +125,7 @@ BackendhomeAsset::register($this);
             var data = button.data('data');
             var modal = $(this);
             $("#edit-form")[0].reset();//重置表单
-            if(data=='add')
-            {
+            if(data=='add') {//新增
                 modal.find('.modal-title').text("添加菜品");
                 $("#dishes-dish_id").val('');
                 $("#dishes-dish_name").val('');
@@ -136,9 +135,7 @@ BackendhomeAsset::register($this);
                 $("#dishes-sweet").val('');
                 $("#dishes-hot").val('');
                 $("#dishes-salty").val('');
-            }
-            else
-            {
+            } else {//编辑
                 modal.find('.modal-title').text("编辑菜品");
                 data=eval(data);
                 $("#dishes-dish_id").val(data.dish_id);
@@ -151,31 +148,28 @@ BackendhomeAsset::register($this);
                 $("#dishes-salty").val(data.salty);
             }
         });
-
+        //表单提交
         $("#edit-form").on('beforeSubmit',function(e){
             $(this).ajaxSubmit({
                  type: $(this).attr('method'),
                  url:$(this).attr('action'),
                  beforeSend: function () {
-                        console.log("beforesend");
+                        //console.log("beforesend");
                         parent.layer.load(1, {shade: false});
                  },
                  complete: function () {
-                        console.log("complete");
+                        //console.log("complete");
                         parent.layer.closeAll('loading');
                  },
-                 success:function(data){
-                        console.log(data);
-                        if (data.status == 1)
-                        {
+                 success:function(data) {
+                        //console.log(data);
+                        if (data.status == 1) {
                             parent.layer.alert(data.message, {icon: 6}, function (index) {
                                 parent.layer.close(index);
                                 getList();
                                 $('#myDialog').modal('hide');
                             });
-                        }
-                        else
-                        {
+                        } else {
                             parent.layer.alert(data.message, {icon: 5}, function (index) {
                                 parent.layer.close(index);
                             });
@@ -223,18 +217,15 @@ BackendhomeAsset::register($this);
                     parent.layer.closeAll('loading');
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    parent.layer.alert('出错拉:' + textStatus + ' ' + errorThrown, {icon: 5});
+                    parent.layer.alert('出错啦:' + textStatus + ' ' + errorThrown, {icon: 5});
                 },
                 success: function (data) {
-                    if(data.status == 1)
-                    {
+                    if(data.status == 1) {
                         parent.layer.alert(data.message, {icon: 6},function(index){
                             getList();
                             parent.layer.close(index);
                         });
-                    }
-                    else
-                    {
+                    } else {
                         parent.layer.alert(data.message, {icon: 5}, function (index) {
                             parent.layer.close(index);
                         });
@@ -246,8 +237,7 @@ BackendhomeAsset::register($this);
 JS;
     $this->registerJs($js);
     ?>
-
     <?php $this->endBody() ?>
     </body>
-    </html>
+</html>
 <?php $this->endPage() ?>

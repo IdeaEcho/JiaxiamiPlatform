@@ -91,7 +91,7 @@ FrontendAsset::register($this);
     </div>
 </section>
 
-<!-- TEAM -->
+<!-- Intro -->
 <section id="team" class="team mbr-box mbr-section mbr-section--relative">
     <svg preserveAspectRatio="none" viewBox="0 0 100 102" height="100" width="100%" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <path d="M0 0 L50 100 L100 0 Z" fill="#ffeedb" stroke="#ffeedb"></path>
@@ -108,7 +108,7 @@ FrontendAsset::register($this);
             </div>
         </div>
         <div class="row">
-            <!-- ITEM -->
+            <!-- single Intro -->
             <div class="team-member col-md-4 col-sm-4 text-center">
                 <div class="member-thumb">
                     <div class="cover"><div class="cover-inner-left"></div></div>
@@ -121,9 +121,9 @@ FrontendAsset::register($this);
                 </div>
                     <h6>饮食爱好分析</h6>
             </div>
-            <!-- end single member -->
+            <!-- end single Intro -->
 
-            <!-- single member -->
+            <!-- single Intro -->
             <div class="team-member col-md-4 col-sm-4 text-center">
                 <div class="member-thumb">
                     <div class="cover"><div class="cover-inner-middle"></div></div>
@@ -136,9 +136,9 @@ FrontendAsset::register($this);
                 </div>
                     <h6>做菜顺序我们来</h6>
             </div>
-            <!-- end single member -->
+            <!-- end single Intro -->
 
-            <!-- single member -->
+            <!-- single Intro -->
             <div class="team-member col-md-4 col-sm-4 text-center ">
                 <div class="member-thumb">
                     <div class="cover"><div class="cover-inner-right"></div></div>
@@ -151,7 +151,7 @@ FrontendAsset::register($this);
                 </div>
                     <h6>挑战活动</h6>
             </div>
-            <!-- end single member -->
+            <!-- end single Intro -->
         </div>
     </div>
     <div class="bottom-separator hidden-xs"></div>

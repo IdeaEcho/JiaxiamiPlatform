@@ -5,6 +5,7 @@ use Yii;
 use yii\web\Controller;
 use yii\helpers\ArrayHelper;
 use app\models\MeAccountInterface;
+use app\models\CuAccountInterface;
 use app\models\Dishes;
 use app\models\CoursesTypes;
 use yii\helpers\Url;
@@ -105,7 +106,6 @@ class OrderinterfaceController extends Controller
                     $customer->sweet = $taste['sweet'];
                     $customer->hot = $taste['hot'];
                     $customer->salty = $taste['salty'];
-                    $customer->save();
 
                     //更新订单
                     //print_r($dish_json);
@@ -119,7 +119,7 @@ class OrderinterfaceController extends Controller
                     $order->order_time = date("Y-m-d H:i:s",time());
                     $order->order_dishes = json_encode($dish_json);
 
-                    if($order->save()) {
+                    if($order->save()&&$customer->save()) {
                         //返回数据
                         $returndata['returnCode'] = "200";
                         $returndata['store_name'] = $store->store_name;

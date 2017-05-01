@@ -85,7 +85,6 @@ BackendhomeAsset::register($this);
             <div class="row" id= "newlist" data-list="<?= Url::toRoute('order/list')?>" data-cancel="<?= Url::toRoute('order/cancel')?>"
                  data-accept="<?= Url::toRoute('order/accept')?>" data-acceptall="<?= Url::toRoute('order/acceptall')?>"
                  data-finish="<?=Url::toRoute('order/finish')?>" data-finishall="<?= Url::toRoute('order/finishall')?>">
-
             </div>
         </div>
 
@@ -97,64 +96,89 @@ BackendhomeAsset::register($this);
     $(function(){
         getNewList();
         var newlist=setInterval(getNewList,3000);
-        $("#newlist").hover(function()
-        {
+        $("#newlist").hover(function(){
             newlist = clearInterval(newlist);
             newlist = setInterval(getNewList,20000);
-        }
-        ,function()
-        {
+        },function(){
             newlist = clearInterval(newlist);
             newlist = setInterval(getNewList,3000);
-        }
-        );
+        });
         parent.toastr.options = {
-      "closeButton": false,
-      "debug": false,
-      "positionClass": "toast-top-right",
-      "onclick": null,
-      "showDuration": "300",
-      "hideDuration": "1000",
-      "timeOut": "5000",
-      "extendedTimeOut": "1000",
-      "showEasing": "swing",
-      "hideEasing": "linear",
-      "showMethod": "fadeIn",
-      "hideMethod": "fadeOut"
-    };
+            "closeButton": false,
+            "debug": false,
+            "positionClass": "toast-top-right",
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
     });
-
+    //获取新订单
     window.getNewList=function(){
        $.ajax({
-        url: $("#newlist").data("list"),
-        beforeSend: function () {
-            //parent.layer.load(2, {shade: false});
-        },
-        complete: function () {
-            //parent.layer.closeAll('loading');
-        },
-        error: function (XMLHttpRequest, textStatus, errorThrown) {
-            //parent.layer.alert('出错拉:' + textStatus + ' ' + errorThrown, {icon: 5});
-        },
-        success: function (data) {
-            $("#newlist").html(data);
-            $(".footable").footable();
-            var ordercount=$("#ordercount").val();
-            var tempordercount=$("#tempordercount").val();
-            if(ordercount>tempordercount)
-            {
-                $('#orderAudio')[0].play();
-                parent.toastr.success("新的订单来了");
+            url: $("#newlist").data("list"),
+            beforeSend: function () {
+                //parent.layer.load(2, {shade: false});
+            },
+            complete: function () {
+                //parent.layer.closeAll('loading');
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                //parent.layer.alert('出错啦:' + textStatus + ' ' + errorThrown, {icon: 5});
+            },
+            success: function (data) {
+                $("#newlist").html(data);
+                $(".footable").footable();
+                var ordercount=$("#ordercount").val();
+                var tempordercount=$("#tempordercount").val();
+                if(ordercount>tempordercount)
+                {
+                    $('#orderAudio')[0].play();//播放语音
+                    parent.toastr.success("新的订单来了");
+                }
+                 $("#tempordercount").val(ordercount);
             }
-             $("#tempordercount").val(ordercount);
-
-        }
-    });
-
-   };
-
-   window.Cancel = function(id){
-            parent.layer.confirm('确定拒绝接单吗?', function(index){
+        });
+    };
+    //接受订单
+    window.accept =function(id) {
+         $.ajax({
+             url: $("#newlist").data("accept"),
+             data:{
+                 id:id
+             },
+             beforeSend: function () {
+                 parent.layer.load(2, {shade: false});
+             },
+             complete: function () {
+                 parent.layer.closeAll('loading');
+             },
+             error: function (XMLHttpRequest, textStatus, errorThrown) {
+                 parent.layer.alert('出错啦:' + textStatus + ' ' + errorThrown, {icon: 5});
+             },
+             success: function (data) {
+                 if(data.status == 1) {
+                     parent.layer.alert(data.message, {icon: 6},function(index){
+                         getNewList();
+                         parent.layer.close(index);
+                     });
+                 }
+                 else {
+                     parent.layer.alert(data.message, {icon: 5}, function (index) {
+                         parent.layer.close(index);
+                     });
+                 }
+             }
+         });
+    };
+   //拒绝订单
+    window.Cancel = function(id) {
+        parent.layer.confirm('确定拒绝接单吗?', function(index){
             parent.layer.close(index);
             $.ajax({
                 url: $("#newlist").data("cancel"),
@@ -168,18 +192,15 @@ BackendhomeAsset::register($this);
                     parent.layer.closeAll('loading');
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    parent.layer.alert('出错拉:' + textStatus + ' ' + errorThrown, {icon: 5});
+                    parent.layer.alert('出错啦:' + textStatus + ' ' + errorThrown, {icon: 5});
                 },
                 success: function (data) {
-                    if(data.status == 1)
-                    {
+                    if(data.status == 1) {
                         parent.layer.alert(data.message, {icon: 6},function(index){
                             getNewList();
                             parent.layer.close(index);
                         });
-                    }
-                    else
-                    {
+                    } else {
                         parent.layer.alert(data.message, {icon: 5}, function (index) {
                             parent.layer.close(index);
                         });
@@ -187,9 +208,10 @@ BackendhomeAsset::register($this);
                 }
             });
         });
-   };
-      window.finish = function(id){
-            parent.layer.confirm('确定完成订单吗?', function(index){
+    };
+    //完成订单
+    window.finish = function(id) {
+        parent.layer.confirm('确定完成订单吗?', function(index){
             parent.layer.close(index);
             $.ajax({
                 url: $("#newlist").data("finish"),
@@ -203,18 +225,15 @@ BackendhomeAsset::register($this);
                     parent.layer.closeAll('loading');
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    parent.layer.alert('出错拉:' + textStatus + ' ' + errorThrown, {icon: 5});
+                    parent.layer.alert('出错啦:' + textStatus + ' ' + errorThrown, {icon: 5});
                 },
                 success: function (data) {
-                    if(data.status == 1)
-                    {
+                    if(data.status == 1) {
                         parent.layer.alert(data.message, {icon: 6},function(index){
                             getNewList();
                             parent.layer.close(index);
                         });
-                    }
-                    else
-                    {
+                    } else {
                         parent.layer.alert(data.message, {icon: 5}, function (index) {
                             parent.layer.close(index);
                         });
@@ -222,9 +241,10 @@ BackendhomeAsset::register($this);
                 }
             });
         });
-   };
-   window.finishall = function(id){
-            parent.layer.confirm('确定完成全部订单吗?', function(index){
+    };
+    //完成所有订单
+    window.finishall = function(){
+        parent.layer.confirm('确定完成全部订单吗?', function(index){
             parent.layer.close(index);
             $.ajax({
                 url: $("#newlist").data("finishall"),
@@ -235,18 +255,15 @@ BackendhomeAsset::register($this);
                     parent.layer.closeAll('loading');
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    parent.layer.alert('出错拉:' + textStatus + ' ' + errorThrown, {icon: 5});
+                    parent.layer.alert('出错啦:' + textStatus + ' ' + errorThrown, {icon: 5});
                 },
                 success: function (data) {
-                    if(data.status == 1)
-                    {
+                    if(data.status == 1) {
                         parent.layer.alert(data.message, {icon: 6},function(index){
                             getNewList();
                             parent.layer.close(index);
                         });
-                    }
-                    else
-                    {
+                    } else {
                         parent.layer.alert(data.message, {icon: 5}, function (index) {
                             parent.layer.close(index);
                         });
@@ -254,76 +271,39 @@ BackendhomeAsset::register($this);
                 }
             });
         });
-   };
-   window.accept =function(id){
-            $.ajax({
-                url: $("#newlist").data("accept"),
-                data:{
-                    id:id
-                },
-                beforeSend: function () {
-                    parent.layer.load(2, {shade: false});
-                },
-                complete: function () {
-                    parent.layer.closeAll('loading');
-                },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    parent.layer.alert('出错拉:' + textStatus + ' ' + errorThrown, {icon: 5});
-                },
-                success: function (data) {
-                    if(data.status == 1)
-                    {
-                        parent.layer.alert(data.message, {icon: 6},function(index){
-                            getNewList();
-                            parent.layer.close(index);
-                        });
-                    }
-                    else
-                    {
-                        parent.layer.alert(data.message, {icon: 5}, function (index) {
-                            parent.layer.close(index);
-                        });
-                    }
-                }
-        });
-   };
-      window.acceptall =function(){
-            $.ajax({
-                url: $("#newlist").data("acceptall"),
-                beforeSend: function () {
-                    parent.layer.load(2, {shade: false});
-                },
-                complete: function () {
-                    parent.layer.closeAll('loading');
-                },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    parent.layer.alert('出错拉:' + textStatus + ' ' + errorThrown, {icon: 5});
-                },
-                success: function (data) {
-                    if(data.status == 1)
-                    {
-                        parent.layer.alert(data.message, {icon: 6},function(index){
-                            getNewList();
-                            parent.layer.close(index);
-                        });
-                    }
-                    else
-                    {
-                        parent.layer.alert(data.message, {icon: 5}, function (index) {
-                            parent.layer.close(index);
-                        });
-                    }
-                }
-        });
-   };
+    };
+    //接受所有订单
+     window.acceptall =function() {
+         $.ajax({
+             url: $("#newlist").data("acceptall"),
+             beforeSend: function () {
+                 parent.layer.load(2, {shade: false});
+             },
+             complete: function () {
+                 parent.layer.closeAll('loading');
+             },
+             error: function (XMLHttpRequest, textStatus, errorThrown) {
+                 parent.layer.alert('出错啦:' + textStatus + ' ' + errorThrown, {icon: 5});
+             },
+             success: function (data) {
+                 if(data.status == 1) {
+                     parent.layer.alert(data.message, {icon: 6},function(index){
+                         getNewList();
+                         parent.layer.close(index);
+                     });
+                 } else {
+                     parent.layer.alert(data.message, {icon: 5}, function (index) {
+                         parent.layer.close(index);
+                     });
+                 }
+             }
+         });
+     };
 JS;
     $this->registerJs($js);
     ?>
-
-
-
     <?php $this->endBody() ?>
 
     </body>
-    </html>
+</html>
 <?php $this->endPage() ?>
