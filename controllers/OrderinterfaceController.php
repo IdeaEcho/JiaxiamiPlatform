@@ -40,7 +40,7 @@ class OrderinterfaceController extends Controller
             $data  = $request ->post('data');
             $data = json_decode($data,true);
             if($data){
-                $orderlist = Orderinterface::findAll(['customer_id'=>$data['customer_id']]);
+                $orderlist = Orderinterface::find()->where(['customer_id'=>$data['customer_id']])->orderBy('order_time DESC')->all();
                 if($orderlist){
                     $returndata =ArrayHelper::toArray($orderlist,[
                        'app\models\Orderinterface'=>[
