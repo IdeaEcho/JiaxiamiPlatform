@@ -62,7 +62,7 @@ class Dishes extends \yii\db\ActiveRecord
         return [
             'merchant_id' => 'merchant_id',
             'dish_id' => 'ID',
-            'type_id' => '分类ID',
+            'type_id' => '分类',
             'dish_name' => '名称',
             'dish_price' => '价格',
             'dish_sales' => '销量',

@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Andy
- * Date: 2016/4/4 0004
- * Time: 22:35
- */
 namespace app\assets;
 
 use yii\web\AssetBundle;

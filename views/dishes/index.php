@@ -67,9 +67,7 @@ BackendhomeAsset::register($this);
                     <!-- 分类 -->
                     <div class="row">
                         <div class="col-md-8">
-                            <div class="col-md-6">
-                            <?= $form->field($model, 'type_id')->dropDownList(ArrayHelper::map($typelist, 'type_id', 'type_name'))  ?>
-                            </div>
+                            <?= $form->field($model, 'type_id')->dropDownList(ArrayHelper::map($typelist, 'type_id', 'type_name'),['class'=>'col-md-6'])  ?>
                         </div>
                     </div>
                     <!-- 价格 -->
