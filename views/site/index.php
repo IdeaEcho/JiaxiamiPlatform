@@ -8,10 +8,8 @@ use yii\captcha\Captcha;
 $this->title = '夹虾米-商家平台';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-    <h4>
-        <?= Html::encode($this->title) ?>
-    </h4>
-    <hr>
+<h4><?= Html::encode($this->title) ?></h4>
+<hr>
 <div class="col-md-12">
         <?php $form = ActiveForm::begin([
             'id' => 'login-form',

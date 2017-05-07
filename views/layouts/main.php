@@ -33,7 +33,7 @@ FrontendAsset::register($this);
             <!-- box header -->
             <div class="box-header">
                     <div class="box-logo">
-                            <a href="index.html"><img src="/imgs/logo.png" width="80" alt="Logo"></a>
+                            <a href="/"><img src="/imgs/logo.png" width="80" alt="Logo"></a>
                     </div>
                     <!-- box-nav -->
                     <a class="box-primary-nav-trigger" href="#0">

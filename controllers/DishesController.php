@@ -27,11 +27,15 @@ class DishesController extends Controller
     {
         $phone = Yii::$app->user->identity->phone;
         $model = Dishes::find()->where(['merchant_id'=>$phone])->all();
+        $typelist = array();
         foreach($model as $key=>$value) {
             $type = CoursesTypes::findOne(['merchant_id'=>$phone,'type_id'=>$value['type_id']]);
             $typelist[$key]['type_name'] = $type->type_name;
         }
-        return $this->renderPartial('list',['model'=>$model,'typelist'=>$typelist]);
+        return $this->renderPartial('list',[
+            'model'=>$model,
+            'typelist'=>$typelist
+        ]);
     }
     //删除菜品
     public function actionDel($id)
