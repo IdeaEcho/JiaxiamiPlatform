@@ -9,7 +9,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <?php $this->beginPage() ?>
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
     <head>
         <meta charset="<?= Yii::$app->charset ?>">
