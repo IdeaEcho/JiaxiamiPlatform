@@ -53,11 +53,11 @@ BackendhomeAsset::register($this);
                     <h4 class="modal-title">Modal title</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-md-8">
                         <?= $form->field($model, 'dish_id', ['template' => '{label}<div class="col-md-6">{input}{hint}{error}</div>', 'labelOptions' => ['class' => 'control-label col-md-2']]) ?>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- 菜名 -->
                     <div class="row">
                         <div class="col-md-8">
@@ -67,7 +67,7 @@ BackendhomeAsset::register($this);
                     <!-- 分类 -->
                     <div class="row">
                         <div class="col-md-8">
-                            <?= $form->field($model, 'type_id')->dropDownList(ArrayHelper::map($typelist, 'type_id', 'type_name'),['class'=>'col-md-6'])  ?>
+                            <?= $form->field($model, 'type_id', ['template' => '{label}<div class="col-md-6">{input}</div>', 'labelOptions' => ['class' => 'control-label col-md-2']])->dropDownList(ArrayHelper::map($typelist, 'type_id', 'type_name'))  ?>
                         </div>
                     </div>
                     <!-- 价格 -->
