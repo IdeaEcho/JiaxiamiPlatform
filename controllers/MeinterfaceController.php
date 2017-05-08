@@ -63,11 +63,6 @@ class MeinterfaceController extends Controller
      * returnCode 200存在 300不存在
      */
     public function actionAccountexist() {
-        //        $phone = '15659675715';
-        //        $array = array("phone"=>$phone);
-        //        $array= json_encode($array);
-        //        $array= base64_encode($array);
-        //        echo $array;
         $request = \Yii::$app->request;
         if($request->isPost){
             $data = $request->post('data'/*,$array*/);
@@ -97,11 +92,6 @@ class MeinterfaceController extends Controller
      * returncode   200 success 300 exists  400不符合规范
     */
     public function actionRegister() {
-        //        $phone = '15659675720';
-        //        $password = '147159';
-        //        $array = array("phone"=>$phone,"password"=>$password);
-        //        $array= json_encode($array);
-        //        $array= base64_encode($array);
         $request = \Yii::$app->request;
         if($request->isPost) {
             $data = $request->post('data'/*,$array*/);
@@ -112,6 +102,7 @@ class MeinterfaceController extends Controller
                     $model = new MeAccountInterface();
                     $model->phone = $dataArray['phone'];
                     $model->password = $dataArray['password'];
+                    $model->avatar = './uploads/logo.png';
                     $model->grade =5;
                     if($model->signup()){}
                 }
