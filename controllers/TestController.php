@@ -24,7 +24,6 @@ class TestController extends Controller
             $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
             if ($model->upload()) {
 //                print_r($model);
-                print_r($data['username']);
                 echo $model->imageFile->baseName;
                 echo $model->imageFile->extension;
                 $account = MeAccountInterface::findOne(['phone' => $phone]);
