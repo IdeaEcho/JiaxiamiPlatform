@@ -39,10 +39,10 @@ BackendindexAsset::register($this);
                         </a>
                         <ul class="dropdown-menu animated fadeInRight m-t-xs">
                             <li>
-                                <a class="J_menuItem" href="changepwd.html">修改密码</a>
+                                <a class="J_menuItem" href="<?=url::toRoute("admin/changepwd")?>">修改密码</a>
                             </li>
                             <li>
-                                <a class="J_menuItem" href="test/upload.html">个人资料</a>
+                                <a class="J_menuItem" href="<?=url::toRoute("test/upload")?>">个人资料</a>
                             </li>
                         </ul>
                     </div>
