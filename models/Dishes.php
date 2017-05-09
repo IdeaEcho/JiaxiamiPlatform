@@ -53,10 +53,6 @@ class Dishes extends \yii\db\ActiveRecord
             [['salty'], 'number'],
         ];
     }
-
-    /**
-     * @inheritdoc
-     */
     public function attributeLabels()
     {
         return [

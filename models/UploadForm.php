@@ -18,7 +18,13 @@ class UploadForm extends Model
             [['imageFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
         ];
     }
-
+    public function attributeLabels()
+    {
+        return [
+            'imageFile' => '头像',
+            'username' => '店铺名',
+        ];
+    }
     public function upload()
     {
         if ($this->validate()) {

@@ -26,10 +26,9 @@ BackendhomeAsset::register($this);
         'options' => ['enctype' => 'multipart/form-data']
     ]) ?>
 
-    <?= $form->field($model, '头像')->fileInput() ?>
-    <?= $form->field($model, '用户名')->textInput()?>
-    <?= $form->field($model, '密码')->passwordInput()?>
-<?= Html::submitButton('保存', ['class' => 'btn btn-primary','id'=>'ajaxSubmit']) ?>
+    <?= $form->field($model, 'imageFile')->fileInput() ?>
+    <?= $form->field($model, 'username')->textInput()?>
+    <?= Html::submitButton('保存', ['class' => 'btn btn-primary','id'=>'ajaxSubmit']) ?>
 
 <?php ActiveForm::end() ?>
 
