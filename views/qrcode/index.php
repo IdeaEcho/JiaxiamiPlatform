@@ -24,7 +24,6 @@ BackendhomeAsset::register($this);
 <?php $this->beginBody() ?>
 <form action="<?=Url::toRoute('qrcode/download')?>" method="post" id="edit-form" >
     <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title">桌号二维码下载</h4>
     </div>
     <input name="_csrf" type="hidden" id="_csrf" value="<?= Yii::$app->request->csrfToken ?>">

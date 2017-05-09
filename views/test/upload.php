@@ -25,15 +25,27 @@ BackendhomeAsset::register($this);
         'method' => "post",
         'options' => ['enctype' => 'multipart/form-data']
     ]) ?>
-
-    <?= $form->field($model, 'imageFile')->fileInput() ?>
-    <?= $form->field($model, 'username')->textInput()?>
-    <?= Html::submitButton('保存', ['class' => 'btn btn-primary','id'=>'ajaxSubmit']) ?>
-
+    <div class="modal-header">
+        <h4 class="modal-title">店铺资料修改</h4>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-8">
+                <?= $form->field($model, 'imageFile')->fileInput() ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <?= $form->field($model, 'username')->textInput()?>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <?= Html::submitButton('保存', ['class' => 'btn btn-primary','id'=>'ajaxSubmit']) ?>
+    </div>
 <?php ActiveForm::end() ?>
 
 <?php
-
 $js = <<<JS
     $(function(){
         $("#edit-form").on('beforeSubmit',function(e){

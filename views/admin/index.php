@@ -42,7 +42,7 @@ BackendindexAsset::register($this);
                                 <a class="J_menuItem" href="<?=url::toRoute("admin/changepwd")?>">修改密码</a>
                             </li>
                             <li>
-                                <a class="J_menuItem" href="<?=url::toRoute("test/upload")?>">个人资料</a>
+                                <a class="J_menuItem" href="<?=url::toRoute("test/upload")?>">店铺资料</a>
                             </li>
                         </ul>
                     </div>
