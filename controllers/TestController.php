@@ -27,7 +27,7 @@ class TestController extends Controller
                 echo $model->imageFile->baseName;
                 echo $model->imageFile->extension;
                 $account = MeAccountInterface::findOne(['phone' => $phone]);
-                $account->nick_name = $data['UploadForm']['username'];
+                $account->nickName = $data['UploadForm']['username'];
                 $account->avatar = './uploads/'.$model->imageFile->baseName.'.'.$model->imageFile->extension;
 //                echo json_encode($data);
                 // 文件上传成功
