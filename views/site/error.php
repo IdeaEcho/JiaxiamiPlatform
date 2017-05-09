@@ -9,7 +9,5 @@ $this->title = $name;
     <div class="alert alert-danger">
         <?= nl2br(Html::encode($message)) ?>
     </div>
-    <p>
-        出错啦
-    </p>
+    <p>出错啦</p>
 </div>

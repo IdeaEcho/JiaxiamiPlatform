@@ -35,14 +35,9 @@ class TestController extends Controller
     }
     public function actionFile()
     {
-//        echo getcwd();
         if(file_exists("../uploads/"))
         {
             echo "exist";
-//            if(rename("Test","Test1"))
-//            {
-//
-//            }
         }
         else
         {

@@ -151,7 +151,6 @@ class SiteController extends Controller
             $success = true;
             if($success==true)
             {
-
                 $session['resetPassword']=[
                     'phone' => $phone,
                     'validTime'=>$validTime,

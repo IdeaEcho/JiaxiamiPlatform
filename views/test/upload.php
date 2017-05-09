@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Andy
- * Date: 2016/5/13 0013
- * Time: 18:25
- */
 use yii\widgets\ActiveForm;
 use app\assets\BackendhomeAsset;
 use yii\helpers\Url;
@@ -32,9 +26,9 @@ BackendhomeAsset::register($this);
         'options' => ['enctype' => 'multipart/form-data']
     ]) ?>
 
-    <?= $form->field($model, 'imageFile')->fileInput() ?>
-    <?= $form->field($model, 'username')->textInput()?>
-    <?= $form->field($model, 'password')->passwordInput()?>
+    <?= $form->field($model, '头像')->fileInput() ?>
+    <?= $form->field($model, '用户名')->textInput()?>
+    <?= $form->field($model, '密码')->passwordInput()?>
 <?= Html::submitButton('保存', ['class' => 'btn btn-primary','id'=>'ajaxSubmit']) ?>
 
 <?php ActiveForm::end() ?>

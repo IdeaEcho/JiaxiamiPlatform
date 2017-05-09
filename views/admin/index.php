@@ -42,11 +42,8 @@ BackendindexAsset::register($this);
                                 <a class="J_menuItem" href="changepwd.html">修改密码</a>
                             </li>
                             <li>
-                                <a class="J_menuItem" href="profile.html">个人资料</a>
+                                <a class="J_menuItem" href="test/upload.html">个人资料</a>
                             </li>
-                            <!-- <li class="divider"></li>
-                            <li><a href="">安全退出</a>
-                            </li> -->
                         </ul>
                     </div>
                     <div class="logo-element">夹虾米</div>

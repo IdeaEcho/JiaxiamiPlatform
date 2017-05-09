@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Andy
- * Date: 2016/8/13 0013
- * Time: 10:57
- */
 use app\assets\BackendhomeAsset;
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
