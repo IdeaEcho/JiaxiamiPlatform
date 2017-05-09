@@ -23,15 +23,20 @@ class TestController extends Controller
         if (Yii::$app->request->isPost) {
             $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
             if ($model->upload()) {
-//                print_r($model);
+                //print_r($model);
                 echo $model->imageFile->baseName;
                 echo $model->imageFile->extension;
                 $account = MeAccountInterface::findOne(['phone' => $phone]);
-                $account->nickName = $data['UploadForm']['username'];
+                $account->nickname = $data['UploadForm']['username'];
                 $account->avatar = './uploads/'.$model->imageFile->baseName.'.'.$model->imageFile->extension;
-//                echo json_encode($data);
+                Yii::$app->user->identity->nickname =  $account->nickname;
+                Yii::$app->user->identity->avatar = '/uploads/'.$model->imageFile->baseName.'.'.$model->imageFile->extension;
+                if($account->save()) {
+                    return true;
+                }
+    //                echo json_encode($data);
                 // 文件上传成功
-                return;
+                return false;
             }
         }
 

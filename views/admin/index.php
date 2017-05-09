@@ -30,7 +30,7 @@ BackendindexAsset::register($this);
             <ul class="nav" id="side-menu">
                 <li class="nav-header">
                     <div class="dropdown profile-element">
-                        <span><img alt="image" class="img-circle"  height="50" width="50" src="/uploads/logo.png" /></span>
+                        <span><img alt="image" class="img-circle"  height="50" width="50" src="<?= substr(Yii::$app->user->identity->avatar,1) ?>" /></span>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="clear">
                                <span class="block m-t-xs"><strong class="font-bold"><?=Yii::$app->user->identity->nickname?></strong></span>
