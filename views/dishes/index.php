@@ -53,6 +53,11 @@ BackendhomeAsset::register($this);
                     <h4 class="modal-title">Modal title</h4>
                 </div>
                 <div class="modal-body">
+                    <div class="row hidden">
+                        <div class="col-md-8">
+                        <?= $form->field($model, 'dish_id', ['template' => '{label}<div class="col-md-6">{input}{hint}{error}</div>', 'labelOptions' => ['class' => 'control-label col-md-2']]) ?>
+                        </div>
+                    </div>
                     <!-- 菜名 -->
                     <div class="row">
                         <div class="col-md-8">

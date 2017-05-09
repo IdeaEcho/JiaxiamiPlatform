@@ -54,6 +54,17 @@ $js = <<<JS
                  url:$(this).attr('action'),
                  success:function(data){
                         console.log(data);
+                        // if (data.status == 1) {
+                        //     parent.layer.alert(data.message, {icon: 6}, function (index) {
+                        //         parent.layer.close(index);
+                        //         getList();
+                        //         $('#myDialog').modal('hide');
+                        //     });
+                        // } else {
+                        //     parent.layer.alert(data.message, {icon: 5}, function (index) {
+                        //         parent.layer.close(index);
+                        //     });
+                        // }
                  },
                  error:function(XmlHttpRequest,textStatus,errorThrown){
                         console.log(XmlHttpRequest);

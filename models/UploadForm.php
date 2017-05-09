@@ -28,7 +28,7 @@ class UploadForm extends Model
     public function upload()
     {
         if ($this->validate()) {
-            $this->imageFile->saveAs(dirname(__DIR__).'\web\uploads\\' . $this->imageFile->baseName . '.' . $this->imageFile->extension);
+            $this->imageFile->saveAs(dirname(__DIR__).'/web/uploads/' . $this->imageFile->baseName . '.' . $this->imageFile->extension);
             return true;
         } else {
             return false;

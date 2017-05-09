@@ -74,14 +74,12 @@ class Dishes extends \yii\db\ActiveRecord
     }
     public function upload()
     {
-
         if($this->imageFile->saveAs(dirname(__DIR__).'/web/dishesimg/' . $this->imageFile->baseName . '.' . $this->imageFile->extension))
         {
             return true;
         }
         else
         {
-//            echo "路径错误";
             return false;
         }
     }
