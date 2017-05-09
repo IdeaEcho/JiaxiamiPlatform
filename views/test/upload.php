@@ -57,7 +57,6 @@ $js = <<<JS
                         // if (data.status == 1) {
                         //     parent.layer.alert(data.message, {icon: 6}, function (index) {
                         //         parent.layer.close(index);
-                        //         getList();
                         //         $('#myDialog').modal('hide');
                         //     });
                         // } else {
