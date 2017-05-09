@@ -24,10 +24,12 @@ class TestController extends Controller
             $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
             if ($model->upload()) {
 //                print_r($model);
-               print_r($data);
+                print_r($data['username']);
                 echo $model->imageFile->baseName;
                 echo $model->imageFile->extension;
-                $model = MeAccountInterface::findOne(['phone' => $phone]);
+                $account = MeAccountInterface::findOne(['phone' => $phone]);
+                $account->nick_name = $data['UploadForm']['username'];
+                $account->avatar = './uploads/'.$model->imageFile->baseName.'.'.$model->imageFile->extension;
 //                echo json_encode($data);
                 // 文件上传成功
                 return;
