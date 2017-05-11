@@ -53,6 +53,7 @@ $js = <<<JS
                  type: $(this).attr('method'),
                  url:$(this).attr('action'),
                  success:function(data){
+                     console.log(data);
                         if (data.status == 1) {
                             parent.layer.alert(data.message, {icon: 6}, function (index) {
                                 parent.layer.close(index);
@@ -64,6 +65,9 @@ $js = <<<JS
                         }
                  },
                  error:function(XmlHttpRequest,textStatus,errorThrown){
+                     console.log(XmlHttpRequest);
+                     console.log(textStatus);
+                     console.log(errorThrown);
                         parent.layer.alert('出错啦:' + textStatus + ' ' + errorThrown, {icon: 5});
                  }
             });

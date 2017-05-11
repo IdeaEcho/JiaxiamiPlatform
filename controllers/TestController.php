@@ -41,8 +41,8 @@ class TestController extends Controller
                     $result['status'] = 0;
                     $result['message'] = current($errors);
                 }
-                return $this->renderJson($result);
             }
+            return $this->renderJson($result);
         }
 
 
