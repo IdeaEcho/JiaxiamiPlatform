@@ -56,6 +56,7 @@ $js = <<<JS
                      console.log(data);
                         if (data.status == 1) {
                             parent.layer.alert(data.message, {icon: 6}, function (index) {
+                                location.reload();
                                 parent.layer.close(index);
                             });
                         } else {
@@ -68,7 +69,7 @@ $js = <<<JS
                      console.log(XmlHttpRequest);
                      console.log(textStatus);
                      console.log(errorThrown);
-                        parent.layer.alert('出错啦:' + textStatus + ' ' + errorThrown, {icon: 5});
+                     parent.layer.alert('出错啦:' + textStatus + ' ' + errorThrown, {icon: 5});
                  }
             });
             return false;

@@ -25,10 +25,10 @@ class UploadForm extends Model
             'username' => '店铺名',
         ];
     }
-    public function upload()
+    public function upload($name)
     {
         if ($this->validate()) {
-            $this->imageFile->saveAs(dirname(__DIR__).'/web/uploads/' . $this->imageFile->baseName . '.' . $this->imageFile->extension);
+            $this->imageFile->saveAs(dirname(__DIR__).'/web/uploads/' . $name . '.' . $this->imageFile->extension);
             return true;
         } else {
             return false;

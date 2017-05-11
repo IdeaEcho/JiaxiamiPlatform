@@ -24,7 +24,7 @@ class TestController extends Controller
         if (Yii::$app->request->isPost) {
             $result = array();
             $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
-            if ($model->upload()) {
+            if ($model->upload($phone)) {
                 //print_r($model);
                 //echo $model->imageFile->baseName;
                 //echo $model->imageFile->extension;
