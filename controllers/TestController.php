@@ -33,7 +33,7 @@ class TestController extends Controller
                 Yii::$app->user->identity->avatar = '/uploads/'.$phone.'.'.$model->imageFile->extension;
                 if($account->save()) {
                     $result['status'] = 1;
-                    $result['message'] = '保存成功';
+                    $result['message'] = '修改成功';
                 }
                 $error = $account->getFirstErrors();
                 if($error)
@@ -44,9 +44,8 @@ class TestController extends Controller
             }
             return $this->renderJson($result);
         }
-
-
     }
+
     public function actionFile()
     {
         if(file_exists("../uploads/"))
@@ -59,4 +58,9 @@ class TestController extends Controller
         }
     }
 
+    public function renderJson($params = array())
+    {
+        Yii::$app->response->format = Response::FORMAT_JSON;
+        return $params;
+    }
 }
