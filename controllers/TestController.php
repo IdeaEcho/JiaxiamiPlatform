@@ -30,7 +30,7 @@ class TestController extends Controller
                 $account->nickname = $data['UploadForm']['username'];
                 $account->avatar = './uploads/'.$model->imageFile->baseName.'.'.$model->imageFile->extension;
                 Yii::$app->user->identity->nickname =  $account->nickname;
-                Yii::$app->user->identity->avatar = '/uploads/'.$model->imageFile->baseName.'.'.$model->imageFile->extension;
+                Yii::$app->user->identity->avatar = '/uploads/'.$phone.'.'.$model->imageFile->extension;
                 if($account->save()) {
                     $result['status'] = 1;
                     $result['message'] = '保存成功';
