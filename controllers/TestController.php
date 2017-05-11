@@ -32,11 +32,16 @@ class TestController extends Controller
                 Yii::$app->user->identity->nickname =  $account->nickname;
                 Yii::$app->user->identity->avatar = '/uploads/'.$model->imageFile->baseName.'.'.$model->imageFile->extension;
                 if($account->save()) {
-                    return true;
+                    $result['status'] = 1;
+                    $result['message'] = '保存成功';
                 }
-    //                echo json_encode($data);
-                // 文件上传成功
-                return false;
+                $error = $account->getFirstErrors();
+                if($error)
+                {
+                    $result['status'] = 0;
+                    $result['message'] = current($errors);
+                }
+                return $this->renderJson($result);
             }
         }
 
