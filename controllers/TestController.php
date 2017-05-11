@@ -5,6 +5,7 @@ use Yii;
 use yii\web\Controller;
 use app\models\MeAccountInterface;
 use app\models\UploadForm;
+use yii\web\Response;
 use yii\web\UploadedFile;
 
 class TestController extends Controller
