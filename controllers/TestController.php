@@ -30,7 +30,7 @@ class TestController extends Controller
                 echo $model->imageFile->extension;
                 $account = MeAccountInterface::findOne(['phone' => $phone]);
                 $account->nickname = $data['UploadForm']['username'];
-                $account->avatar = './uploads/'.$model->imageFile->baseName.'.'.$model->imageFile->extension;
+                $account->avatar = './uploads/'.$phone.'.'.$model->imageFile->extension;
                 Yii::$app->user->identity->nickname =  $account->nickname;
                 Yii::$app->user->identity->avatar = '/uploads/'.$phone.'.'.$model->imageFile->extension;
                 if($account->save()) {
