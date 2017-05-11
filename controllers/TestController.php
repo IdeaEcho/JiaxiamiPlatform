@@ -21,6 +21,7 @@ class TestController extends Controller
         $data = Yii::$app->request->post();
         $phone = Yii::$app->user->identity->phone;
         if (Yii::$app->request->isPost) {
+            $result = array();
             $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
             if ($model->upload()) {
                 //print_r($model);
