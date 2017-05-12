@@ -11,7 +11,10 @@ class OrderController  extends Controller
     public $layout = false;
     public function actionIndex()
     {
-        return $this->render('index');
+        $phone = Yii::$app->user->identity->phone;
+        $count = Orderinterface::find()->where(["merchant_id"=>$phone])->count();
+        $sum = Orderinterface::find()->select('present_price')->sum('present_price');
+        return $this->render('index',['sum'=>$sum,'count'=>$count]);
     }
     public function actionNewlist()
     {
